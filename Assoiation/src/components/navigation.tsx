@@ -44,7 +44,7 @@ export default function Navigation() {
               className="relative flex-shrink-0 group"
             >
               {/* Image container - significantly increased size */}
-              <div className="relative h-20 w-48 sm:h-24 sm:w-56 md:h-28 md:w-64 lg:h-32 lg:w-32 xl:h-32 xl:w-60 flex items-center justify-center transition-all duration-500">
+              <div className="relative h-16 w-32 sm:h-20 sm:w-40 md:h-24 md:w-48 lg:h-28 lg:w-48 xl:h-28 xl:w-52  flex items-center justify-center transition-all duration-500">
                 <img 
                   src={src} 
                   alt={`Partner ${index % images.length + 1}`}

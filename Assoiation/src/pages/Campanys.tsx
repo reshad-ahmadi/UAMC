@@ -105,8 +105,8 @@ export default function TaxationServices() {
                       key={i} 
                       className={`leading-tight inline-block ${
                         i >= 1 
-                          ? 'text-3xl md:text-[40px] lg:text-[58px] 2xl:text-[102px] min-[2560px]:text-[150px] text-brand-primary font-extrabold mt-1 uppercase tracking-tight' 
-                          : 'text-xl md:text-[24px] lg:text-[36px] 2xl:text-[80px] min-[2560px]:text-[60px] text-white font-bold opacity-90'
+                          ? 'text-2xl md:text-[32px] lg:text-[48px] 2xl:text-[82px] min-[2560px]:text-[120px] text-brand-primary font-extrabold  uppercase tracking-tight' 
+                          : 'text-lg md:text-[20px] lg:text-[28px] 2xl:text-[64px] min-[2560px]:text-[50px] text-white font-bold opacity-90'
                       }`}
                     >
                       {line}

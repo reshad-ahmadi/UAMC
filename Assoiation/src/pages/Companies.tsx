@@ -164,11 +164,11 @@ export default function Companies() {
       <Navbar />
       
       {/* Header */}
-      <div id="members-section" className="relative pt-12 pb-12 md:pt-29 md:pb-16 px-6 text-center">
-        <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">
+      <div id="members-section" className="relative pt-12 pb-12 md:pt-30 md:pb-16 px-6 text-center">
+        <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-6 mt-[10px]">
           <span className="text-blue-500">{t('our_members') || 'Our Members'}</span>
         </h1>
-        <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+        <p className="text-gray-400 max-w-2xl mx-auto text-base md:text-lg">
           {t('companies_desc') || "Discover the leading manufacturers shaping Afghanistan's industrial future."}
         </p>
       </div>
