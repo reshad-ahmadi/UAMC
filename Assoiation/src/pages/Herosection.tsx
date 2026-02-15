@@ -15,9 +15,9 @@ const HeroSection = () => {
       {/* Background Image & Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          alt="High-level boardroom meeting"
+          alt="Industrial Iron Pipes"
           className="w-full h-full object-cover"
-          src="/images/hero10.png"
+          src="/images/mmmma.png"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900/20 via-slate-900/50 to-[#0B1222]"></div>
       </div>
