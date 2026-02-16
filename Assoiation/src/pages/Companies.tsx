@@ -48,7 +48,7 @@ const CompanyCard = ({ company, t, language }: { company: any, t: any, language:
               <div className="w-20 h-1 bg-blue-500 rounded-full mt-4 group-hover:w-32 transition-all duration-500"></div>
             </div>
             
-            <div className={`prose prose-invert prose-lg max-w-none text-gray-300 mb-6 leading-relaxed whitespace-pre-line border-l-2 border-blue-500/30 pl-6 transition-all duration-700 overflow-hidden ${isExpanded ? 'max-h-[2000px] opacity-100' : 'max-h-32 opacity-70'}`}>
+            <div className={`prose prose-invert prose-lg max-w-none text-gray-300 mb-6 leading-relaxed whitespace-pre-line border-l-2 border-blue-500/30 pl-6 transition-all duration-700 overflow-hidden ${isExpanded ? 'opacity-100' : 'line-clamp-3 opacity-70'}`}>
               {company.description}
             </div>
           </div>
@@ -131,7 +131,7 @@ const CompanyCard = ({ company, t, language }: { company: any, t: any, language:
             onClick={() => setIsExpanded(!isExpanded)}
             className="flex items-center gap-2 text-blue-500 font-bold uppercase tracking-widest text-sm mt-6 mb-[6px] hover:text-blue-400 transition-colors group/btn w-fit"
           >
-            {isExpanded ? t('view_less') || 'View Less' : t('view_details') || 'View Details'}
+            {isExpanded ? t('read_less') : t('read_more')}
             <ChevronDown size={18} className={`transition-transform duration-500 ${isExpanded ? 'rotate-180' : ''}`} />
           </button>
         </div>
@@ -164,7 +164,7 @@ export default function Companies() {
       <Navbar />
       
       {/* Header */}
-      <div id="members-section" className="relative pt-12 pb-12 md:pt-30 md:pb-16 px-6 text-center">
+      <div id="members-hero" className="relative pt-12 pb-12 md:pt-30 md:pb-16 px-6 text-center">
         <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-6 mt-[60px] lg:mt-[20px] md:mt-[20px] 2xl:mt-[60px] ">
           <span className="text-blue-500">{t('our_members') || 'Our Members'}</span>
         </h1>

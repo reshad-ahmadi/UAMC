@@ -1,9 +1,29 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { Target, Eye, ShieldCheck, History, Handshake, TrendingUp, Globe, Briefcase } from 'lucide-react';
+import { Target, Eye, ShieldCheck, History, Handshake, TrendingUp, Globe, Briefcase, ChevronDown } from 'lucide-react';
 import Navbar from '../components/Nav';
 import Footer from '../components/Footer';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+
+const ExpandableText = ({ text }: { text: string }) => {
+  const [isExpanded, setIsExpanded] = React.useState(false);
+  const { t } = useLanguage();
+  
+  return (
+    <div className="flex flex-col gap-2">
+      <p className={`transition-all duration-500 ${isExpanded ? '' : 'line-clamp-2'}`}>
+        {text}
+      </p>
+      <button 
+        onClick={() => setIsExpanded(!isExpanded)}
+        className="text-blue-500 font-bold uppercase tracking-widest text-[10px] 2xl:text-xs flex items-center gap-1 hover:text-blue-400 transition-colors w-fit mt-1"
+      >
+        {isExpanded ? t('read_less') : t('read_more')}
+        <ChevronDown size={14} className={`transition-transform duration-500 ${isExpanded ? 'rotate-180' : ''}`} />
+      </button>
+    </div>
+  );
+};
 
 const Counter = ({ target, isVisible, suffix = "" }: { target: number, isVisible: boolean, suffix?: string }) => {
   const [count, setCount] = React.useState(0);
@@ -242,28 +262,28 @@ export default function AboutUs() {
                   <div className="p-6 2xl:p-10 rounded-2xl md:rounded-3xl bg-white/5 border border-white/10 hover:border-blue-500/20 transition-colors">
                     <div className="flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-4">
                       <History className="text-blue-500 mt-1 flex-shrink-0" size={24} />
-                      <p>{t('about_detailed_p1')}</p>
+                      <ExpandableText text={t('about_detailed_p1')} />
                     </div>
                   </div>
 
                   <div className="p-6 2xl:p-10 border border-white/5 rounded-2xl md:rounded-3xl">
                     <div className="flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-4">
                       <TrendingUp className="text-blue-600 mt-1 flex-shrink-0" size={24} />
-                      <p>{t('about_detailed_p2')}</p>
+                      <ExpandableText text={t('about_detailed_p2')} />
                     </div>
                   </div>
 
                   <div className="p-6 2xl:p-10 bg-blue-600/5 border border-blue-600/10 rounded-2xl md:rounded-3xl">
                     <div className="flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-4">
                       <ShieldCheck className="text-blue-500 mt-1 flex-shrink-0" size={24} />
-                      <p>{t('about_detailed_p3')}</p>
+                      <ExpandableText text={t('about_detailed_p3')} />
                     </div>
                   </div>
 
                   <div className="p-6 2xl:p-10 border border-white/5 rounded-2xl md:rounded-3xl">
                     <div className="flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-4">
                       <Handshake className="text-blue-600 mt-1 flex-shrink-0" size={24} />
-                      <p>{t('about_detailed_p4')}</p>
+                      <ExpandableText text={t('about_detailed_p4')} />
                     </div>
                   </div>
 
@@ -271,7 +291,7 @@ export default function AboutUs() {
                     <div className="p-6 2xl:p-10 rounded-2xl md:rounded-3xl bg-white/5 border border-white/10">
                       <div className="flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-4">
                         <Briefcase className="text-blue-500 mt-1 flex-shrink-0" size={24} />
-                        <p>{t('about_detailed_p5')}</p>
+                        <ExpandableText text={t('about_detailed_p5')} />
                       </div>
                     </div>
                     {/* Inline Image - Full width */}
@@ -288,7 +308,7 @@ export default function AboutUs() {
                   <div className="p-6 2xl:p-10 bg-gradient-to-r from-blue-600/5 to-transparent border border-blue-500/20 rounded-2xl md:rounded-3xl">
                     <div className="flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-4">
                       <Globe className="text-blue-500 mt-1 flex-shrink-0" size={24} />
-                      <p>{t('about_detailed_p6')}</p>
+                      <ExpandableText text={t('about_detailed_p6')} />
                     </div>
                   </div>
                 </div>
@@ -314,9 +334,7 @@ export default function AboutUs() {
                 <Target className="text-blue-500" size={28} />
               </div>
               <h3 className="text-2xl 2xl:text-5xl font-bold mb-4 2xl:mb-6">{t('about_mission_title')}</h3>
-              <p className="text-gray-400 text-base 2xl:text-2xl leading-relaxed">
-                {t('about_mission_desc')}
-              </p>
+              <ExpandableText text={t('about_mission_desc')} />
             </div>
 
             <div className="group relative p-8 2xl:p-16 rounded-[2rem] bg-white/5 border border-white/10 overflow-hidden hover:border-blue-900/50 transition-all duration-500">
@@ -325,9 +343,7 @@ export default function AboutUs() {
                 <Eye className="text-blue-500" size={28} />
               </div>
               <h3 className="text-2xl 2xl:text-5xl font-bold mb-4 2xl:mb-6">{t('about_vision_title')}</h3>
-              <p className="text-gray-400 text-base 2xl:text-2xl leading-relaxed">
-                {t('about_vision_desc')}
-              </p>
+              <ExpandableText text={t('about_vision_desc')} />
             </div>
           </div>
         </div>

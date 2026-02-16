@@ -63,8 +63,8 @@ app.post('/api/contact', async (req, res) => {
     });
 
     const mailOptions = {
-      from: email,
-      to: process.env.ADMIN_EMAIL || 'ahreshadahmadi020@gmail.com',
+      from: `"${name}" <${email}>`,
+      to: process.env.ADMIN_EMAIL || 'info@uigpmca.af',
       subject: `New Contact Form Submission: ${subject}`,
       text: `
         Name: ${name}

@@ -103,7 +103,7 @@ const ContactUs = () => {
                 </div>
                 <div>
                   <h4 className="text-sm 2xl:text-xl font-semibold mb-1 text-white">{t('phone')}</h4>
-                  <p className="text-gray-400 text-sm 2xl:text-lg hover:text-brand-primary transition-colors cursor-pointer">+93 (0) 799 123 456</p>
+                  <p className="text-gray-400 text-sm 2xl:text-lg hover:text-brand-primary transition-colors cursor-pointer">{t('contact_phone')}</p>
                   <p className="text-gray-600 text-xs 2xl:text-base mt-1">Sat-Thu 8am-5pm</p>
                 </div>
               </div>
@@ -117,7 +117,7 @@ const ContactUs = () => {
                 </div>
                 <div>
                   <h4 className="text-sm 2xl:text-xl font-semibold mb-1 text-white">{t('email')}</h4>
-                  <p className="text-gray-400 text-sm 2xl:text-lg hover:text-brand-primary transition-colors cursor-pointer">info@ironpipes-union.af</p>
+                  <p className="text-gray-400 text-sm 2xl:text-lg hover:text-brand-primary transition-colors cursor-pointer">{t('contact_email')}</p>
                   <p className="text-gray-600 text-xs 2xl:text-base mt-1">We reply within 24 hours</p>
                 </div>
               </div>
@@ -132,8 +132,8 @@ const ContactUs = () => {
                 </div>
                 <div>
                   <h4 className="text-sm 2xl:text-xl font-semibold mb-1 text-white">{t('office_label')}</h4>
-                  <p className="text-gray-400 text-sm 2xl:text-lg">Herat Industrial Zone</p>
-                  <p className="text-gray-600 text-xs 2xl:text-base mt-1">Afghanistan</p>
+                  <p className="text-gray-400 text-sm 2xl:text-lg">{t('contact_address')}</p>
+                  <p className="text-gray-600 text-xs 2xl:text-base mt-1">{t('contact_address_country')}</p>
                 </div>
               </div>
             </div>

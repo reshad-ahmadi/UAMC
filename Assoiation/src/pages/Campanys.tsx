@@ -25,49 +25,49 @@ export default function TaxationServices() {
 
   const pageData = [
     { 
-      title: [t('slider_1_t1'), t('slider_1_t2'), t('slider_1_t3')], 
+      title: [t('slider_1_t1'), t('slider_1_t2')], 
       desc: [
         t('slider_1_desc'),
         ""
       ] 
     },
     { 
-      title: [t('slider_2_t1'), t('slider_2_t2'), t('slider_2_t3')], 
+      title: [t('slider_2_t1'), t('slider_2_t2')], 
       desc: [
         t('slider_2_desc'),
         ""
       ] 
     },
     { 
-      title: [t('slider_3_t1'), t('slider_3_t2'), t('slider_3_t3')], 
+      title: [t('slider_3_t1'), t('slider_3_t2')], 
       desc: [
         t('slider_3_desc'),
         ""
       ] 
     },
     { 
-      title: [t('slider_4_t1'), t('slider_4_t2'), t('slider_4_t3')], 
+      title: [t('slider_4_t1'), t('slider_4_t2')], 
       desc: [
         t('slider_4_desc'),
         ""
       ] 
     },
     { 
-      title: [t('slider_5_t1'), t('slider_5_t2'), t('slider_5_t3')], 
+      title: [t('slider_5_t1'), t('slider_5_t2')], 
       desc: [
         t('slider_5_desc'),
         ""
       ] 
     },
     { 
-      title: [t('slider_6_t1'), t('slider_6_t2'), t('slider_6_t3')], 
+      title: [t('slider_6_t1'), t('slider_6_t2')], 
       desc: [
         t('slider_6_desc'),
         ""
       ] 
     },
     { 
-      title: [t('slider_7_t1'), t('slider_7_t2'), t('slider_7_t3')], 
+      title: [t('slider_7_t1'), t('slider_7_t2')], 
       desc: [
         t('slider_7_desc'),
         ""

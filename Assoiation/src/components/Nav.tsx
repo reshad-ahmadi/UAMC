@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, Globe, ChevronDown } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 
@@ -8,6 +8,8 @@ export default function Navbar() {
   const { language, setLanguage, t } = useLanguage();
   const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   // Handle scroll effect for shadow
   useEffect(() => {
@@ -25,6 +27,23 @@ export default function Navbar() {
     ps: 'Pashto'
   };
 
+  const handleNavClick = (path: string, hash: string) => {
+    setIsMenuOpen(false);
+    
+    if (location.pathname === path) {
+      // If we are already on the page, scroll smoothly to the hash
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    } else {
+      // Navigate to the page with hash
+      navigate(`${path}${hash}`);
+    }
+  };
+
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
@@ -35,12 +54,11 @@ export default function Navbar() {
         }`}
       >
         {/* Left: Association Name/Logo */}
-        <Link to="/" className="flex items-center gap-4 2xl:gap-6 group">
-          <div className="w-[50px] h-[50px] 2xl:w-[70px] 2xl:h-[70px] rounded-full overflow-hidden bg-blue-600 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300 shadow-md">
-             {/* Using a placeholder icon/text until logo is confirmed for light bg */}
+        <Link to="/#home-hero" onClick={(e) => { e.preventDefault(); handleNavClick('/', '#home-hero'); }} className="flex items-center gap-4 2xl:gap-6 group">
+          <div className="w-[50px] h-[50px] 2xl:w-[70px] 2xl:h-[70px] rounded-full overflow-hidden bg-white flex items-center justify-center shrink-0 group-hover:scale-110 transition-all duration-500  ">
             <img 
-              className="w-full h-full object-cover" 
-              src="/images/logo.jpeg" 
+              className="w-full h-full object-contain transition-transform duration-500" 
+              src="/images/shah.png" 
               alt="Logo"
             />
           </div>
@@ -52,13 +70,28 @@ export default function Navbar() {
         {/* Desktop Menu - Centered */}
         <ul className="hidden md:flex items-center gap-8 2xl:gap-10 text-sm 2xl:text-base font-bold text-gray-600 absolute left-1/2 transform -translate-x-1/2">
           <li>
-            <Link to="/" className="hover:text-blue-600 transition-colors duration-300">{t('home')}</Link>
+            <button 
+              onClick={() => handleNavClick('/', '#home-hero')}
+              className="hover:text-blue-600 transition-colors duration-300"
+            >
+              {t('home')}
+            </button>
           </li>
           <li>
-            <Link to="/about" className="hover:text-blue-600 transition-colors duration-300">{t('about_us')}</Link>
+            <button 
+              onClick={() => handleNavClick('/about', '#about-hero')}
+              className="hover:text-blue-600 transition-colors duration-300"
+            >
+              {t('about_us')}
+            </button>
           </li>
           <li>
-            <Link to="/members#members-section" className="hover:text-blue-600 transition-colors duration-300">{t('companies')}</Link>
+            <button 
+              onClick={() => handleNavClick('/members', '#members-hero')}
+              className="hover:text-blue-600 transition-colors duration-300"
+            >
+              {t('companies')}
+            </button>
           </li>
         </ul>
 
@@ -107,33 +140,29 @@ export default function Navbar() {
           <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl p-6 shadow-2xl md:hidden animate-in fade-in slide-in-from-top-2 duration-300 border border-gray-100 mx-4">
             <ul className="flex flex-col gap-4 text-center text-sm font-bold text-gray-800">
               <li>
-                <Link 
-                  to="/" 
-                  onClick={() => setIsMenuOpen(false)}
-                  className="block py-3 hover:text-blue-600 transition-colors border-b border-gray-100"
+                <button 
+                  onClick={() => handleNavClick('/', '#home-hero')}
+                  className="block w-full py-3 hover:text-blue-600 transition-colors border-b border-gray-100"
                 >
                   {t('home')}
-                </Link>
+                </button>
               </li>
               <li>
-                <Link 
-                  to="/about" 
-                  onClick={() => setIsMenuOpen(false)}
-                  className="block py-3 hover:text-blue-600 transition-colors border-b border-gray-100"
+                <button 
+                  onClick={() => handleNavClick('/about', '#about-hero')}
+                  className="block w-full py-3 hover:text-blue-600 transition-colors border-b border-gray-100"
                 >
                   {t('about_us')}
-                </Link>
+                </button>
               </li>
               <li>
-                <Link 
-                  to="/members#members-section" 
-                  onClick={() => setIsMenuOpen(false)}
-                  className="block py-3 hover:text-blue-600 transition-colors border-b border-gray-100"
+                <button 
+                  onClick={() => handleNavClick('/members', '#members-hero')}
+                  className="block w-full py-3 hover:text-blue-600 transition-colors border-b border-gray-100"
                 >
                   {t('companies')}
-                </Link>
+                </button>
               </li>
-
             </ul>
             
             {/* Mobile Language Selection */}

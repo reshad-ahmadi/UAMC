@@ -12,7 +12,7 @@ const HeroSection = () => {
   const buttonAnimation = useScrollAnimation();
 
   return (
-    <div className={`relative min-h-screen min-h-[100dvh] flex flex-col ${isRTL ? 'rtl' : 'ltr'}`} dir={isRTL ? 'rtl' : 'ltr'}>
+    <div id="home-hero" className={`relative min-h-screen min-h-[100dvh] flex flex-col ${isRTL ? 'rtl' : 'ltr'}`} dir={isRTL ? 'rtl' : 'ltr'}>
       {/* Background Image & Overlay */}
       <div className="absolute inset-0 z-0">
         <img
