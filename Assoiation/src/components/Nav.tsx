@@ -72,7 +72,7 @@ export default function Navbar() {
           <li>
             <button 
               onClick={() => handleNavClick('/', '#home-hero')}
-              className="hover:text-blue-600 transition-colors duration-300"
+              className="hover:text-blue-600 transition-colors duration-300 cursor-pointer"
             >
               {t('home')}
             </button>
@@ -80,7 +80,7 @@ export default function Navbar() {
           <li>
             <button 
               onClick={() => handleNavClick('/about', '#about-hero')}
-              className="hover:text-blue-600 transition-colors duration-300"
+              className="hover:text-blue-600 transition-colors duration-300 cursor-pointer"
             >
               {t('about_us')}
             </button>
@@ -88,7 +88,7 @@ export default function Navbar() {
           <li>
             <button 
               onClick={() => handleNavClick('/members', '#members-hero')}
-              className="hover:text-blue-600 transition-colors duration-300"
+              className="hover:text-blue-600 transition-colors duration-300 cursor-pointer"
             >
               {t('companies')}
             </button>
@@ -99,7 +99,7 @@ export default function Navbar() {
         <div className="hidden md:block relative">
           <button 
             onClick={() => setIsLangDropdownOpen(!isLangDropdownOpen)}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-6 2xl:px-8 py-2.5 2xl:py-3 rounded-full text-sm 2xl:text-base font-bold transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 flex items-center gap-2"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-6 2xl:px-8 py-2.5 2xl:py-3 rounded-full text-sm 2xl:text-base font-bold transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 flex items-center gap-2 cursor-pointer"
           >
             <Globe className="w-4 h-4 2xl:w-5 2xl:h-5" />
             <span className="uppercase">{language}</span>
@@ -115,7 +115,7 @@ export default function Navbar() {
                     setLanguage(langCode as 'en' | 'da' | 'ps');
                     setIsLangDropdownOpen(false);
                   }}
-                  className={`text-left px-4 2xl:px-6 py-2 2xl:py-3 text-sm 2xl:text-base hover:bg-gray-50 transition-colors ${language === langCode ? 'text-blue-600 font-bold' : 'text-gray-600'}`}
+                  className={`text-left px-4 2xl:px-6 py-2 2xl:py-3 text-sm 2xl:text-base hover:bg-gray-50 transition-colors cursor-pointer ${language === langCode ? 'text-blue-600 font-bold' : 'text-gray-600'}`}
                 >
                   {languages[langCode]}
                 </button>
@@ -142,7 +142,7 @@ export default function Navbar() {
               <li>
                 <button 
                   onClick={() => handleNavClick('/', '#home-hero')}
-                  className="block w-full py-3 hover:text-blue-600 transition-colors border-b border-gray-100"
+                  className="block w-full py-3 hover:text-blue-600 transition-colors border-b border-gray-100 cursor-pointer"
                 >
                   {t('home')}
                 </button>
@@ -150,7 +150,7 @@ export default function Navbar() {
               <li>
                 <button 
                   onClick={() => handleNavClick('/about', '#about-hero')}
-                  className="block w-full py-3 hover:text-blue-600 transition-colors border-b border-gray-100"
+                  className="block w-full py-3 hover:text-blue-600 transition-colors border-b border-gray-100 cursor-pointer"
                 >
                   {t('about_us')}
                 </button>
@@ -158,7 +158,7 @@ export default function Navbar() {
               <li>
                 <button 
                   onClick={() => handleNavClick('/members', '#members-hero')}
-                  className="block w-full py-3 hover:text-blue-600 transition-colors border-b border-gray-100"
+                  className="block w-full py-3 hover:text-blue-600 transition-colors border-b border-gray-100 cursor-pointer"
                 >
                   {t('companies')}
                 </button>
@@ -174,7 +174,7 @@ export default function Navbar() {
                     setLanguage(langCode as 'en' | 'da' | 'ps');
                     setIsMenuOpen(false);
                   }}
-                  className={`px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest transition-all ${
+                  className={`px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest transition-all cursor-pointer ${
                     language === langCode 
                       ? 'bg-blue-600 text-white shadow-md' 
                       : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
