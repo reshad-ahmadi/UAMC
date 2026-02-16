@@ -52,15 +52,13 @@ const HeroSection = () => {
         {/* Description */}
         <p 
           ref={descAnimation.ref}
-          className={`max-w-xl md:max-w-2xl lg:max-w-3xl 2xl:max-w-6xl mx-auto text-xs sm:text-[14px] lg:text-[15px] 2xl:text-[20px] text-center xl:text-center xl:text-[15px] text-slate-200 font-light leading-relaxed mb-8 md:mb-10 2xl:mb-12 px-4 md:px-5 lg:px-[20px] font-semibold transition-all duration-1000 delay-300 ${
+          className={`max-w-xl md:max-w-2xl lg:max-w-2xl 2xl:max-w-5xl mx-auto text-xs sm:text-[14px] lg:text-[15px] 2xl:text-[20px] text-center text-slate-200 font-light leading-relaxed mb-8 md:mb-10 2xl:mb-12 px-4 md:px-5 lg:px-[20px] font-semibold transition-all duration-1000 delay-300 ${
             descAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
             The Union of Afghan Manufacturing Companies of Cans, Profiles, Iron and Galvanized Pipes was established in 2024 (1403 in the Afghan calendar) with the primary
             objective of fostering internal coordination among related manufacturing industries and strengthening cooperation
-            with governmental and non-governmental institutions. With a strategic focus on enhancing both the quality and quantity
-             of domestic production,  of the Islamic 
-             Emirate of Afghanistan on 30 October 2025 (8/8/1404) and commenced its practical activities thereafter.
+            with governmental and non-governmental institutions.
         </p>
 
         {/* Buttons */}

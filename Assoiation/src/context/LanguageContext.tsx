@@ -41,7 +41,7 @@ const translations: Record<Language, Record<string, string>> = {
     'powered_by': 'Powered by Community',
     'hero_title_1': 'Union of Afghan Manufacturing Companies of',
     'hero_title_2': 'Cans, Profiles, Iron and Galvanized Pipes',
-    'hero_desc': 'The union was established in 2024 (1403 in the Afghan calendar) to improve coordination among manufacturing companies and strengthen cooperation with government and non-government institutions, supporting the growth of Afghanistan’s manufacturing sector.',
+    'hero_desc': 'Fostering internal coordination among manufacturing industries and strengthening cooperation with governmental and non-governmental institutions.',
     'join_now': 'JOIN NOW',
 
     // Companies Page
@@ -232,7 +232,7 @@ const translations: Record<Language, Record<string, string>> = {
     'powered_by': 'قدرت گرفته از جامعه',
     'hero_title_1': 'اتحادیه شرکت‌های تولیدی افغانستان',
     'hero_title_2': 'قوطی، پروفیل، آهن و لوله‌های گالوانیزه',
-    'hero_desc': 'این اتحادیه در سال ۱۴۰۳ (۲۰۲۴ میلادی) به منظور بهبود هماهنگی میان شرکت‌های تولیدی و تقویت همکاری با نهادهای دولتی و غیردولتی، جهت حمایت از رشد بخش تولید افغانستان تأسیس گردید.',
+    'hero_desc': 'ایجاد هماهنگی میان صنایع تولیدی و تقویت همکاری با نهادهای دولتی و غیردولتی جهت رشد پایدار.',
     'join_now': 'عضو شوید',
 
     // Companies Page
@@ -424,7 +424,7 @@ const translations: Record<Language, Record<string, string>> = {
     'powered_by': 'د ټولنې لخوا ځواکمن شوی',
     'hero_title_1': 'د افغانستان د تولیدي شرکتونو اتحادیه',
     'hero_title_2': 'قطي، پروفیل، اوسپنه او ګالوانیز پایپونه',
-    'hero_desc': 'دا اتحادیه په ۱۴۰۳ (۲۰۲۴) کال کې د تولیدي شرکتونو ترمنځ د همغږۍ ښه کولو او د دولتي او غیر دولتي ادارو سره د همکارۍ پیاوړتیا لپاره تاسیس شوه، ترڅو د افغانستان د تولیدي سکتور وده ملاتړ وکړي.',
+    'hero_desc': 'د تولیدي شرکتونو ترمنځ د همغږۍ رامنځته کول او له دولتي او غیر دولتي ادارو سره د همکارۍ پیاوړتیا.',
     'join_now': 'اوس یوځای شئ',
 
     // Companies Page
