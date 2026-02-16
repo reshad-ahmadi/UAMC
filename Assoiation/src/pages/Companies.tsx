@@ -165,7 +165,7 @@ export default function Companies() {
       
       {/* Header */}
       <div id="members-section" className="relative pt-12 pb-12 md:pt-30 md:pb-16 px-6 text-center">
-        <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-6 mt-[10px]">
+        <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-6 mt-[60px] lg:mt-[20px] md:mt-[20px] 2xl:mt-[60px] ">
           <span className="text-blue-500">{t('our_members') || 'Our Members'}</span>
         </h1>
         <p className="text-gray-400 max-w-2xl mx-auto text-base md:text-lg">
