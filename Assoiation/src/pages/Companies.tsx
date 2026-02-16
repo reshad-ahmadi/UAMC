@@ -53,16 +53,8 @@ const CompanyCard = ({ company, t, language }: { company: any, t: any, language:
             </div>
           </div>
 
-          <button 
-            onClick={() => setIsExpanded(!isExpanded)}
-            className="flex items-center gap-2 text-blue-500 font-bold uppercase tracking-widest text-sm mt-auto mb-[6px] hover:text-blue-400 transition-colors group/btn w-fit"
-          >
-            {isExpanded ? t('view_less') || 'View Less' : t('view_details') || 'View Details'}
-            <ChevronDown size={18} className={`transition-transform duration-500 ${isExpanded ? 'rotate-180' : ''}`} />
-          </button>
-
           {/* Info Grid - Expandable */}
-          <div className={`grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 bg-black/20 p-8 rounded-3xl border border-white/5 transition-all duration-700 origin-top overflow-hidden ${isExpanded ? 'scale-y-100 opacity-100 mt-0' : 'scale-y-0 opacity-0 h-0 mt-[-40px]'}`}>
+          <div className={`grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 bg-black/20 p-8 rounded-3xl border border-white/5 transition-all duration-700 origin-top overflow-hidden ${isExpanded ? 'scale-y-100 opacity-100 mt-6' : 'scale-y-0 opacity-0 h-0 mt-[-40px]'}`}>
             
             {/* Factory */}
             <div>
@@ -134,6 +126,14 @@ const CompanyCard = ({ company, t, language }: { company: any, t: any, language:
             </div>
 
           </div>
+
+          <button 
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="flex items-center gap-2 text-blue-500 font-bold uppercase tracking-widest text-sm mt-6 mb-[6px] hover:text-blue-400 transition-colors group/btn w-fit"
+          >
+            {isExpanded ? t('view_less') || 'View Less' : t('view_details') || 'View Details'}
+            <ChevronDown size={18} className={`transition-transform duration-500 ${isExpanded ? 'rotate-180' : ''}`} />
+          </button>
         </div>
       </div>
     </div>
