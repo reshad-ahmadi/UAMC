@@ -19,7 +19,7 @@ const HeroSection = () => {
           className="w-full h-full object-cover object-center lg:object-center"
           src="/images/bg2.png"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/40 via-slate-900/60 to-[#0B1222]"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/5 via-slate-900/20 to-[#0B1222]"></div>
       </div>
 
       <main className="relative z-10 flex-grow flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 text-center py-12 md:py-20 mt-[90px] md:mt-[70px] ">
