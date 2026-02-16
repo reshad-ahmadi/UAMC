@@ -41,7 +41,9 @@ const translations: Record<Language, Record<string, string>> = {
     'powered_by': 'Powered by Community',
     'hero_title_1': 'Union of Afghan Manufacturing Companies of',
     'hero_title_2': 'Cans, Profiles, Iron and Galvanized Pipes',
-    'hero_desc': 'Fostering internal coordination among manufacturing industries and strengthening cooperation with governmental and non-governmental institutions.',
+    'hero_desc': 'The Union of Afghan Manufacturing Companies of Cans, Profiles, Iron and Galvanized Pipes was established to foster coordination among manufacturing industries and strengthen cooperation with governmental and non-governmental institutions, focusing on enhancing domestic production quality.',
+    'official_voice': 'The Official Voice of Afghan Manufacturing',
+    'contact_us': 'CONTACT US',
     'join_now': 'JOIN NOW',
 
     // Companies Page
@@ -62,7 +64,6 @@ const translations: Record<Language, Record<string, string>> = {
     'add_first_company': 'Add Your First Company',
     
     // Contact
-    'contact_us': 'Contact Us',
     'send_message': 'Send Message',
     'name': 'Name',
     'email': 'Email',
@@ -232,7 +233,9 @@ const translations: Record<Language, Record<string, string>> = {
     'powered_by': 'قدرت گرفته از جامعه',
     'hero_title_1': 'اتحادیه شرکت‌های تولیدی افغانستان',
     'hero_title_2': 'قوطی، پروفیل، آهن و لوله‌های گالوانیزه',
-    'hero_desc': 'ایجاد هماهنگی میان صنایع تولیدی و تقویت همکاری با نهادهای دولتی و غیردولتی جهت رشد پایدار.',
+    'hero_desc': 'اتحادیه شرکت‌های تولیدی افغانستان در سال ۱۴۰۳ با هدف ایجاد هماهنگی میان صنایع تولیدی و تقویت همکاری با نهادهای دولتی و غیردولتی فعالیت خود را آغاز نموده و بر ارتقای کیفیت و کمیت تولیدات داخلی تمرکز دارد.',
+    'official_voice': 'صدای رسمی تولیدات افغانستان',
+    'contact_us': 'تماس با ما',
     'join_now': 'عضو شوید',
 
     // Companies Page
@@ -253,7 +256,6 @@ const translations: Record<Language, Record<string, string>> = {
     'add_first_company': 'افزودن اولین شرکت',
 
     // Contact
-    'contact_us': 'تماس با ما',
     'send_message': 'ارسال پیام',
     'name': 'نام',
     'email': 'ایمیل',
@@ -424,7 +426,9 @@ const translations: Record<Language, Record<string, string>> = {
     'powered_by': 'د ټولنې لخوا ځواکمن شوی',
     'hero_title_1': 'د افغانستان د تولیدي شرکتونو اتحادیه',
     'hero_title_2': 'قطي، پروفیل، اوسپنه او ګالوانیز پایپونه',
-    'hero_desc': 'د تولیدي شرکتونو ترمنځ د همغږۍ رامنځته کول او له دولتي او غیر دولتي ادارو سره د همکارۍ پیاوړتیا.',
+    'hero_desc': 'د افغانستان د تولیدي شرکتونو اتحادیه په ۱۴۰۳ کال کې د تولیدي صنایعو ترمنځ د همغږۍ او له دولتي او غیر دولتي بنسټونو سره د همکارۍ د پیاوړتیا په موخه جوړه شوې، چې د کورنیو تولیداتو د کیفیت او کمیت په لوړولو تمرکز کوي.',
+    'official_voice': 'د افغان تولیداتو رسمي غږ',
+    'contact_us': 'اړیکه ونیسئ',
     'join_now': 'اوس یوځای شئ',
 
     // Companies Page
@@ -445,7 +449,6 @@ const translations: Record<Language, Record<string, string>> = {
     'add_first_company': 'خپل لومړی شرکت اضافه کړئ',
 
      // Contact
-    'contact_us': 'موږ سره اړیکه ونیسئ',
     'send_message': 'پیغام واستوئ',
     'name': 'نوم',
     'email': 'بریښنالیک',

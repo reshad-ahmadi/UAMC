@@ -28,7 +28,7 @@ export default function Navigation() {
   }, []);
 
   return (
-    <div className="">
+    <div className="ltr" dir="ltr">
       <div className="flex items-center justify-center bg-[#0B1222] gap-4 text-gray-400 text-[10px] sm:text-xs font-medium tracking-[0.3em] uppercase py-2">
         <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-blue-500/50"></div>
         <span className="whitespace-nowrap">{t('trusted_leaders')}</span>

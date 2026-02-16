@@ -4,14 +4,15 @@ import { ShieldCheck, ArrowRight, Building2, Globe, TrendingUp, Users, Calendar 
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const HeroSection = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const isRTL = language === 'da' || language === 'ps';
   const badgeAnimation = useScrollAnimation();
   const headingAnimation = useScrollAnimation();
   const descAnimation = useScrollAnimation();
   const buttonAnimation = useScrollAnimation();
 
   return (
-    <div className="relative min-h-screen min-h-[100dvh] flex flex-col">
+    <div className={`relative min-h-screen min-h-[100dvh] flex flex-col ${isRTL ? 'rtl' : 'ltr'}`} dir={isRTL ? 'rtl' : 'ltr'}>
       {/* Background Image & Overlay */}
       <div className="absolute inset-0 z-0">
         <img
@@ -31,7 +32,9 @@ const HeroSection = () => {
           }`}
         >
           <ShieldCheck className="w-3 h-3 md:w-3.5 md:h-3.5 2xl:w-4 2xl:h-4 text-blue-600 shrink-0" />
-          <span className="text-[8px] sm:text-[9px] md:text-[10px] 2xl:text-xs font-bold tracking-[0.1em] md:tracking-[0.2em] uppercase text-white whitespace-nowrap overflow-hidden text-ellipsis">The Official Voice of Afghan Manufacturing</span>
+          <span className="text-[8px] sm:text-[9px] md:text-[10px] 2xl:text-xs font-bold tracking-[0.1em] md:tracking-[0.2em] uppercase text-white whitespace-nowrap overflow-hidden text-ellipsis">
+            {t('official_voice')}
+          </span>
         </div>
 
         {/* Heading */}
@@ -43,9 +46,9 @@ const HeroSection = () => {
             headingAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <span className="md:whitespace-nowrap block">Union of Afghan Manufacturing Companies of</span>
+          <span className="md:whitespace-nowrap block">{t('hero_title_1')}</span>
           <span className="block mt-2 text-blue-200 drop-shadow-[0_0_40px_rgba(37,99,235,0.4)]">
-            CANS, PROFILES, IRON AND PIPES
+            {t('hero_title_2')}
           </span>
         </h1>
 
@@ -56,9 +59,7 @@ const HeroSection = () => {
             descAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-            The Union of Afghan Manufacturing Companies of Cans, Profiles, Iron and Galvanized Pipes was established in 2024 (1403 in the Afghan calendar) with the primary
-            objective of fostering internal coordination among related manufacturing industries and strengthening cooperation
-            with governmental and non-governmental institutions.
+          {t('hero_desc')}
         </p>
 
         {/* Buttons */}
@@ -72,7 +73,7 @@ const HeroSection = () => {
             href="/#contact" 
             className="w-full sm:w-auto px-6 py-3 md:px-8 md:py-3 2xl:px-10 2xl:py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full text-sm md:text-base 2xl:text-lg font-bold transition-all hover:shadow-[0_0_20px_rgba(37,99,235,0.5)] hover:-translate-y-0.5 active:scale-95 flex items-center justify-center gap-2 group"
           >
-            CONTACT US
+            {t('contact_us')}
             <ArrowRight className="w-4 h-4 2xl:w-5 2xl:h-5 group-hover:translate-x-1 transition-transform" />
           </a>
         </div>
