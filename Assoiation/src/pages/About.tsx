@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { Shield, Cpu, Users, ArrowRight } from 'lucide-react';
+import { Building2, TrendingUp, ArrowUpRight, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
@@ -11,20 +11,20 @@ export default function About() {
 
   const values = [
     {
-      icon: <Shield className="text-blue-500" size={32} />,
-      icon2xl: <Shield className="text-blue-500" size={48} />,
+      icon: <Building2 className="text-blue-500" size={32} />,
+      icon2xl: <Building2 className="text-blue-500" size={48} />,
       title: t('value_integrity'),
       desc: t('value_integrity_desc')
     },
     {
-      icon: <Cpu className="text-blue-500" size={32} />,
-      icon2xl: <Cpu className="text-blue-500" size={48} />,
+      icon: <TrendingUp className="text-blue-500" size={32} />,
+      icon2xl: <TrendingUp className="text-blue-500" size={48} />,
       title: t('value_innovation'),
       desc: t('value_innovation_desc')
     },
     {
-      icon: <Users className="text-blue-500" size={32} />,
-      icon2xl: <Users className="text-blue-500" size={48} />,
+      icon: <ArrowUpRight className="text-blue-500" size={32} />,
+      icon2xl: <ArrowUpRight className="text-blue-500" size={48} />,
       title: t('value_collaboration'),
       desc: t('value_collaboration_desc')
     }

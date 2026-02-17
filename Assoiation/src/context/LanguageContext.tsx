@@ -39,9 +39,9 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Hero Section
     'powered_by': 'Powered by Community',
-    'hero_title_1': 'Union of Afghan Manufacturing Companies of',
-    'hero_title_2': 'Cans, Profiles, Iron and Galvanized Pipes',
-    'hero_desc': 'The Union of Afghan Manufacturing Companies of Cans, Profiles, Iron and Galvanized Pipes was established in 2024 (1403 in the Afghan calendar) with the primary objective of fostering internal coordination among related manufacturing industries and strengthening cooperation with governmental and non-governmental institutions.',
+    'hero_title_1': 'Union of Steel and Galvanized Round Pipe,',
+    'hero_title_2': 'Profile, and can Manufacturing Companies of Afghanistan',
+    'hero_desc': 'The Union of Steel and Galvanized Round Pipe, Profile, and can Manufacturing Companies of Afghanistan was established in 2024 (1403 in the Afghan calendar) with the primary objective of fostering internal coordination among related manufacturing industries and strengthening cooperation with governmental and non-governmental institutions.',
     'official_voice': 'The Official Voice of Afghan Manufacturing',
     'contact_us': 'CONTACT US',
     'join_now': 'JOIN NOW',
@@ -104,7 +104,7 @@ const translations: Record<Language, Record<string, string>> = {
      'stay_updated': 'Stay Updated',
      'newsletter_desc': 'Subscribe to our newsletter for the latest updates.',
      'email_placeholder': 'Enter your email',
-     'rights_reserved_text': 'Association. All rights reserved.',
+     'rights_reserved_text': 'USMA. All rights reserved.',
      'privacy_policy': 'Privacy Policy',
      'terms_service': 'Terms of Service',
      'cookies_settings': 'Cookies Settings',
@@ -131,12 +131,12 @@ const translations: Record<Language, Record<string, string>> = {
       'about_vision_title': "Our Vision",
       'about_vision_desc': "To lead Afghanistan toward industrial self-sufficiency, where high-quality locally manufactured steel and pipe products become the primary choice for national infrastructure development.",
       'core_values': "Core Values",
-      'value_integrity': "Integrity",
-      'value_integrity_desc': "Upholding the highest ethical standards in manufacturing and trade.",
-      'value_innovation': "Innovation",
-      'value_innovation_desc': "Continuously modernizing facilities and production techniques.",
-      'value_collaboration': "Collaboration",
-      'value_collaboration_desc': "Fostering strong partnerships among members and stakeholders.",
+      'value_integrity': "Prosperity",
+      'value_integrity_desc': "Contributing to the building and prosperity of the nation.",
+      'value_innovation': "Development",
+      'value_innovation_desc': "Expanding the scale and depth of industrial capabilities.",
+      'value_collaboration': "Progress",
+      'value_collaboration_desc': "Striving for continuous advancement and modern industrial growth.",
      
      // Products Section
      'products_header': '( OUR PRODUCTS )',
@@ -162,25 +162,25 @@ const translations: Record<Language, Record<string, string>> = {
      'trusted_leaders': "Trusted by Leaders",
 
      // Slider / Companies Carousel
-     'slider_1_t1': "Aria Sanat", 'slider_1_t2': "PROFILE PRODUCT CO.", 'slider_1_t3': "",
+     'slider_1_t1': "Aria Sanat", 'slider_1_t2': "PROFILE PRODUCTION CO.", 'slider_1_t3': "",
      'slider_1_desc': "Aria Sanat Profile Production Co. is a manufacturing and industrial trading company operating out of Herat, Afghanistan. The business is known to be involved in industrial profile production and related steel or metal processing activities.",
      
-     'slider_2_t1': "Afghanistan Steel", 'slider_2_t2': "MANUFACTURING FACTORIES UNION.", 'slider_2_t3': "",
+     'slider_2_t1': "Shamal Profil", 'slider_2_t2': "FACTORY", 'slider_2_t3': "",
      'slider_2_desc': "Supporting the industrial growth and integration of manufacturing sectors across the region with a focus on steel and metal excellence. Providing essential infrastructure components for national development projects.",
      
-     'slider_3_t1': "Folad Sanat", 'slider_3_t2': "IRON & STEEL FACTORY.", 'slider_3_t3': "",
+     'slider_3_t1': "Folad Sanat", 'slider_3_t2': "CANS AND PROFILES PRODUCTION.", 'slider_3_t3': "",
      'slider_3_desc': "Leading the way in heavy industry and steel processing in Afghanistan. Equipped with modern technology to deliver high-quality construction materials for the local market.",
      
-     'slider_4_t1': "Fazlli Ganzhawi", 'slider_4_t2': "PIPE PRODUCTION COMPANY.", 'slider_4_t3': "",
+     'slider_4_t1': "Fazli Ghaznawe", 'slider_4_t2': "IRON AND METAL PIPE MANUFACTURING COMPANY.", 'slider_4_t3': "",
      'slider_4_desc': "Specializing in high-quality pipe manufacturing and industrial solutions. Dedicated to delivering professional infrastructure components for major construction projects.",
      
-     'slider_5_t1': "Industrial Manufacturing", 'slider_5_t2': "HERAT, AFGHANISTAN.", 'slider_5_t3': "",
+     'slider_5_t1': "Shirzad Steel", 'slider_5_t2': "PROFILE MANUFACTURING COMPANY", 'slider_5_t3': "",
      'slider_5_desc': "A hub of industrial innovation and production excellence located in Herat's business district. Driving regional economic growth through dedicated manufacturing and trade services.",
      
-     'slider_6_t1': "Nawid Mazar", 'slider_6_t2': "INDUSTRIAL COMPANY.", 'slider_6_t3': "",
+     'slider_6_t1': "Nawid Mazar", 'slider_6_t2': "PROFILE INDUSTRIAL MANUFACTURING COMPANY.", 'slider_6_t3': "",
      'slider_6_desc': "Expanding the reach of industrial manufacturing excellence to Mazar-i-Sharif and beyond. Providing localized production solutions for large-scale infrastructure and industrial needs.",
      
-     'slider_7_t1': "General Metal", 'slider_7_t2': "AND STEEL CONSTRUCTION.", 'slider_7_t3': "",
+     'slider_7_t1': "Qadir Kamran", 'slider_7_t2': "PROFILES AND IRON PIPE PRODUCT COMPANY", 'slider_7_t3': "",
      'slider_7_desc': "Building a stronger future for Afghanistan through advanced metal processing and engineering. A committed member of the manufacturing union focusing on quality and sustainability.",
 
      // Detailed About Content
@@ -205,7 +205,7 @@ const translations: Record<Language, Record<string, string>> = {
     'shirzad_slogan': "Shirzad Steel – A Distinct Path in the Nation’s Profile Industry",
 
     // Member - Shamal Profile
-    'shamal_title': "Shamal Profile Industrial and Manufacturing Company",
+    'shamal_title': "Shamal Profil Factory",
     'shamal_desc': `Shamal Profile Industrial and Manufacturing Company, holder of license number (D-01-1536), is officially registered with the esteemed Ministry of Industry and Commerce of Afghanistan. The company was founded in 2014 (1393) in Balkh Province, northern Afghanistan, under the leadership of Haji Mohammad Aslam Osmani as President and his partners.\n\nIn 2020 (1399), the company established its second branch in Kabul Industrial Parks. Furthermore, its third branch, equipped with modern machinery capable of producing various iron and galvanized profiles and pipes up to 6 millimeters, will soon be inaugurated in Mazar-e-Sharif.\n\nThe factories have a production capacity of 300 tons per 24 hours, with an annual capacity of 109,500 tons. The company produces profiles, sheets, iron and galvanized pipes, door frames, and structural steel for hangars. Products include profiles from 10x10 mm to 140x140 mm (up to 4mm thickness) and pipes from 1.3 cm to 8 inches (1-4mm thickness).`,
     'shamal_factory_label': "Factory Addresses:",
     'shamal_factory_addr': "Kabul Industrial Parks & Balkh Province",
@@ -217,7 +217,7 @@ const translations: Record<Language, Record<string, string>> = {
     'shamal_slogan': "Quality Production, National Pride",
 
     // Member - Aria Sanat
-    'aria_title': "Aria Sanat Profile Manufacturing Company",
+    'aria_title': "ARIA SANAT PROFILE PRODUCTION CO",
     'aria_desc': `Aria Sanat Profile Manufacturing Company commenced its operations in 2011 with the aim of meeting domestic market demand, enhancing the quality of metal products, expanding trade, and creating sustainable employment opportunities in Afghanistan. Upon entering the market, the company began production with 18 types of profiles and, through continuous development and the adoption of modern technologies, has expanded its product portfolio to more than 250 diversified products. Today, Aria Sanat is recognized as one of the leading profile manufacturers in the country.\n\nThe Aria Sanat factory has been established on a land area of 7,000 square meters, and in recent years its total industrial built-up area has been expanded to over 10,000 square meters. This industrial complex comprises various sections, including fully equipped production halls, quality control laboratories, standard warehouses, and specialized departments such as factory management, engineering and production design, planning, research and development (R&D), quality control, and a central warehouse.\n\nSince the beginning of its activities, Aria Sanat has utilized advanced technologies imported from reputable Chinese companies and has strengthened its position through continuous technical and production cooperation with international partners. The company has established itself as one of the largest and most reliable manufacturers of steel profiles, square and rectangular tubes, and iron and galvanized pipes in a wide range of dimensions and thicknesses. This approach has ensured that Aria Sanat products remain competitive and trustworthy in terms of quality, delivery time, and pricing.\n\nAria Sanat’s quality policy is based on three fundamental principles:\n1) Manufacturing high-quality products in accordance with industrial standards\n2) Ensuring timely and reliable delivery to customers\n3) Offering competitive and reasonable prices\n\nWith a strong commitment to customer satisfaction and continuous improvement, Aria Sanat consistently strives to play an effective role in the industrial and economic growth of Afghanistan.`,
     'aria_factory_label': "Factory Address:",
     'aria_factory_addr': "Herat, Afghanistan, Industrial Park, Phase 2, Shokofa 4",
@@ -229,23 +229,23 @@ const translations: Record<Language, Record<string, string>> = {
     'aria_slogan': "Aria Sanat – A Symbol of Quality and Pride in the Nation’s Profile Industry",
 
     // New Members
-    'folad_title': "Folad Sanat Iron & Steel Factory",
+    'folad_title': "Folad Sanat Cans And Profiles production",
     'folad_desc': "Leading the way in heavy industry and steel processing in Afghanistan. Equipped with modern technology to deliver high-quality construction materials for the local market.",
-    'ghaznawi_title': "Fazlli Ghaznawi Pipe Production Company",
+    'ghaznawi_title': "Fazli Ghaznawe Iron and Metal Pipe Manufacturing Company",
     'ghaznawi_desc': "Specializing in high-quality pipe manufacturing and industrial solutions. Dedicated to delivering professional infrastructure components for major construction projects.",
-    'mazar_title': "Nawid Mazar Industrial Company",
+    'mazar_title': "Nawid Mazar Profile Industrial Manufacturing Company",
     'mazar_desc': "Expanding the reach of industrial manufacturing excellence to Mazar-i-Sharif and beyond. Providing localized production solutions for large-scale infrastructure and industrial needs.",
     'afg_steel_title': "Afghanistan Steel Manufacturing Factories Union",
     'afg_steel_desc': "Supporting the industrial growth and integration of manufacturing sectors across the region with a focus on steel and metal excellence. Providing essential infrastructure components for national development projects.",
-    'kamran_title': "Kamran Profile Production",
+    'kamran_title': "Qadir Kamran Profiles and Iron Pipe Product Company",
     'kamran_desc': "A hub of industrial innovation and production excellence located in Herat's business district. Driving regional economic growth through dedicated manufacturing and trade services.",
     'general_metal_title': "General Metal and Steel Construction",
     'general_metal_desc': "Building a stronger future for Afghanistan through advanced metal processing and engineering. A committed member of the manufacturing union focusing on quality and sustainability.",
     'victor_title': "Victor Pipe Manufacturing",
     'victor_desc': "Leading manufacturer of high-quality industrial pipes and steel hollow sections, serving national infrastructure projects.",
-    'rial_title': "Rial Profile Co.",
+    'rial_title': "Real Fabriket Production",
     'rial_desc': "Specialized in the production of precision-engineered steel profiles and sections for commercial and industrial use.",
-    'zada_title': "Zada Profile & Metal Works",
+    'zada_title': "Hewad Nabi Zada Profil Steel Production Co",
     'zada_desc': "A major player in the steel construction and profile manufacturing sector of Afghanistan, committed to durability and trust.",
 
     // New Slogans & Addr
@@ -289,7 +289,7 @@ const translations: Record<Language, Record<string, string>> = {
     'companies_desc': 'تولیدکنندگان برتر صنعتی و کارخانجاتی که ستون فقرات صنعت فولاد و پروفیل افغانستان را تشکیل می‌دهند را کشف کنید.',
     'all': 'همه',
     'loading_units': 'در حال بارگذاری واحدهای تولیدی...',
-    'view_profile': 'مشاهده پروفایل',
+    'view_profile': 'مشاهده پروفیل',
     'no_companies_found': 'هیچ شرکتی در پایگاه داده اتحادیه یافت نشد.',
     'add_first_company': 'افزودن اولین شرکت',
     'read_more': 'ادامه مطلب',
@@ -304,7 +304,7 @@ const translations: Record<Language, Record<string, string>> = {
     'location_label': 'موقعیت',
     'phone': 'تلفن',
     'contact_email': 'info@uigpmca.af',
-    'contact_phone': '+93 74 709 8888',
+    'contact_phone': '۰۷۴۷۰۹۸۸۸۸',
     'contact_address': 'آپارتمان ۴۸، منزل ۱۱، عظیم تاور، دهن باغ، ناحیه چهارم',
     'contact_address_country': 'شهر کابل، افغانستان',
     'contact_header': '( تماس با ما )',
@@ -361,12 +361,12 @@ const translations: Record<Language, Record<string, string>> = {
       'about_vision_title': 'دیدگاه ما',
       'about_vision_desc': 'رهبری افغانستان به سمت خودکفایی صنعتی، جایی که محصولات فولادی و لوله‌های با کیفیت تولید شده در داخل، انتخاب اصلی برای توسعه زیرساخت‌های ملی باشد.',
       'core_values': 'ارزش‌های اصلی',
-      'value_integrity': 'صداقت',
-      'value_integrity_desc': 'حفظ بالاترین استانداردهای اخلاقی در تولید و تجارت.',
-      'value_innovation': 'نوآوری',
-      'value_innovation_desc': 'مدرن‌سازی مداوم تسهیلات و تکنیک‌های تولید.',
-      'value_collaboration': 'همکاری',
-      'value_collaboration_desc': 'تقویت مشارکت‌های قوی بین اعضا و ذین فعان.',
+      'value_integrity': 'آبادی',
+      'value_integrity_desc': 'سهم‌گیری فعال در اعمار و آبادانی کشور.',
+      'value_innovation': 'توسعه',
+      'value_innovation_desc': 'گسترش ظرفیت‌ها و توانمندی‌های صنعتی در سراسر کشور.',
+      'value_collaboration': 'ترقی',
+      'value_collaboration_desc': 'پیشرفت مداوم و دستیابی به رشد مدرن صنعتی.',
 
     // Products Section
     'products_header': '( محصولات ما )',
@@ -392,25 +392,25 @@ const translations: Record<Language, Record<string, string>> = {
     'trusted_leaders': 'مورد اعتماد رهبران',
 
     // Slider / Companies Carousel
-    'slider_1_t1': 'آریا صنعت', 'slider_1_t2': 'شرکت تولیدی پروفیل', 'slider_1_t3': '',
+    'slider_1_t1': 'آریا صنعت', 'slider_1_t2': 'شرکت تولید پروفیل', 'slider_1_t3': '',
     'slider_1_desc': 'شرکت تولیدی پروفیل آریا صنعت یک شرکت تجاری و صنعتی تولیدی است که در هرات، افغانستان فعالیت می‌کند. این کسب‌وکار به تولید پروفیل صنعتی و فعالیت‌های مرتبط با پردازش فولاد یا فلز شناخته می‌شود.',
     
-    'slider_2_t1': 'فولاد افغانستان', 'slider_2_t2': 'اتحادیه فابریکات تولیدی', 'slider_2_t3': '',
+    'slider_2_t1': 'شمال پروفیل', 'slider_2_t2': 'شرکت صنعتی تولیدی', 'slider_2_t3': '',
     'slider_2_desc': 'حمایت از رشد صنعتی och یکپارچگی بخش‌های تولیدی در سراسر منطقه با تمرکز بر تعالی فولاد و فلز. تأمین اجزای زیرساختی اساسی برای پروژه‌های توسعه ملی.',
     
-    'slider_3_t1': 'فولاد صنعت', 'slider_3_t2': 'فابریکه آهن و فولاد', 'slider_3_t3': '',
+    'slider_3_t1': 'فولاد صنعت', 'slider_3_t2': 'شرکت صنعتی تولید قوطی وپروفیل', 'slider_3_t3': '',
     'slider_3_desc': 'پیشرو در صنایع سنگین و پردازش فولاد در افغانستان. مجهز به فناوری مدرن برای تحویل مواد ساختمانی با کیفیت بالا برای بازار محلی.',
     
-    'slider_4_t1': 'فضلی غزنوی', 'slider_4_t2': 'شرکت تولید پایپ', 'slider_4_t3': '',
+    'slider_4_t1': 'فضلی غزنوی', 'slider_4_t2': 'شرکت تولید پایپ آهنی و جستی', 'slider_4_t3': '',
     'slider_4_desc': 'تخصص در تولید پایپ با کیفیت بالا و راهکارهای صنعتی. متعهد به تحویل اجزای زیرساختی حرفه‌ای برای پروژه‌های ساختمانی بزرگ.',
     
-    'slider_5_t1': 'تولیدات صنعتی', 'slider_5_t2': 'هرات، افغانستان', 'slider_5_t3': '',
+    'slider_5_t1': 'شیرزاد استیل', 'slider_5_t2': 'شرکت تولیدی پروفیل', 'slider_5_t3': '',
     'slider_5_desc': 'یک قطب نوآوری صنعتی و تعالی تولید واقع در منطقه تجاری هرات. پیشبرد رشد اقتصادی منطقه از طریق خدمات تولیدی و تجاری اختصاصی.',
     
-    'slider_6_t1': 'نوید مزار', 'slider_6_t2': 'شرکت صنعتی', 'slider_6_t3': '',
+    'slider_6_t1': 'نوید مزار', 'slider_6_t2': 'شرکت صنعتی تولیدی نویدمزار پروفیل', 'slider_6_t3': '',
     'slider_6_desc': 'گسترش دامنه تعالی تولید صنعتی به مزارشریف و فراتر از آن. ارائه راهکارهای تولیدی بومی‌سازی شده برای زیرساخت‌های بزرگ مقیاس و نیازهای صنعتی.',
     
-    'slider_7_t1': 'جنرال متال', 'slider_7_t2': 'و فولاد ساختمانی', 'slider_7_t3': '',
+    'slider_7_t1': 'قادر کامران', 'slider_7_t2': 'شرکت تولید پروفیل و نل آهنی', 'slider_7_t3': '',
     'slider_7_desc': 'ساخت آینده‌ای قوی‌تر برای افغانستان از طریق پردازش فلز پیشرفته و انجینرینگ. یک عضو متعهد اتحادیه تولیدی با تمرکز بر کیفیت و پایداری.',
 
     // Detailed About Content
@@ -436,7 +436,7 @@ const translations: Record<Language, Record<string, string>> = {
     'shirzad_slogan': "شیرزاد استیل؛ خطی متفاوت در صنعت پروفیل کشور",
 
     // Member - Shamal Profile
-    'shamal_title': "شرکت صنعتی و تولیدی شمال پروفیل",
+    'shamal_title': "شرکت صنعتی تولیدی شمال پروفیل",
     'shamal_desc': `شرکت صنعتی و تولیدی شمال پروفیل دارنده نمبر جواز (D-01-1536) ثبت وراجستر شده وزارت محترم صنعت و تجارت افغانستان بوده که درسال 1393 (2014) در شمال افغانستان ولایت بلخ تاسیس گردید. این فابریکه درسال 1399 (2020) نماینده گی دوم خویش را در پارک های صنعتی کابل تاسیس نمود.\n\nهمچنان نماینده گی سوم این فابریکه با ماشین آلات مدرن که ظرفیت تولید انواع پروفیل ونل های آهنی و جستی الی 6 ملی را دارد در مزار شریف عنقریب افتتاح میگردد. فابریکات این شرکت ظرفیت تولید 300 تن در 24 ساعت وسالانه ظرفیت تولید 109،500 تن را دارد.\n\nاین فابریکه انواع مختلف پروفیل (10x10 الی 140x140)، قطی، نل های آهنی و جستی (1.3 سانتی الی 8 انچ)، چوکات های آهنی دروازه و آهن آلات ساخت هنگرها را تولید میکند.`,
     'shamal_factory_label': "آدرس فابریکه:",
     'shamal_factory_addr': "پارک های صنعتی کابل و ولایت بلخ",
@@ -460,23 +460,23 @@ const translations: Record<Language, Record<string, string>> = {
     'aria_slogan': "آریا صنعت؛ نماد کیفیت و افتخار در صنعت پروفیل کشور",
 
     // اعضای جدید
-    'folad_title': "فابریکه آهن و فولاد فولاد صنعت",
+    'folad_title': "شرکت صنعتی تولید قوطی وپروفیل فولاد صنعت",
     'folad_desc': "پیشرو در صنایع سنگین و پردازش فولاد در افغانستان. مجهز به فناوری مدرن برای تحویل مواد ساختمانی با کیفیت بالا برای بازار محلی.",
-    'ghaznawi_title': "شرکت تولید پایپ فضلی غزنوی",
+    'ghaznawi_title': "شرکت تولید پایپ آهنی و جستی فضلی غزنوی",
     'ghaznawi_desc': "تخصص در تولید پایپ با کیفیت بالا و راهکارهای صنعتی. متعهد به تحویل اجزای زیرساختی حرفه‌ای برای پروژه‌های ساختمانی بزرگ.",
-    'mazar_title': "شرکت صنعتی نوید مزار",
+    'mazar_title': "شرکت صنعتی تولیدی نویدمزار پروفیل",
     'mazar_desc': "گسترش دامنه تعالی تولید صنعتی به مزارشریف و فراتر از آن. ارائه راهکارهای تولیدی بومی‌سازی شده برای زیرساخت‌های بزرگ مقیاس و نیازهای صنعتی.",
     'afg_steel_title': "اتحادیه فابریکات تولیدی فولاد افغانستان",
     'afg_steel_desc': "حمایت از رشد صنعتی و یکپارچگی بخش‌های تولیدی در سراسر منطقه با تمرکز بر تعالی فولاد و فلز. تأمین اجزای زیرساختی اساسی برای پروژه‌های توسعه ملی.",
-    'kamran_title': "تولیدی پروفیل کامران",
+    'kamran_title': "شرکت تولید پروفیل و نل آهنی قادر کامران",
     'kamran_desc': "یک قطب نوآوری صنعتی و تعالی تولید واقع در منطقه تجاری هرات. پیشبرد رشد اقتصادی منطقه از طریق خدمات تولیدی و تجاری اختصاصی.",
     'general_metal_title': "جنرال متال و فولاد ساختمانی",
     'general_metal_desc': "ساخت آینده‌ای قوی‌تر برای افغانستان از طریق پردازش فلز پیشرفته و انجینرینگ. یک عضو متعهد اتحادیه تولیدی با تمرکز بر کیفیت و پایداری.",
     'victor_title': "تولیدی پایپ ویکتور",
     'victor_desc': "تولیدکننده پیشرو در لوله های صنعتی با کیفیت بالا و مقاطع توخالی فولادی، در خدمت پروژه های زیربنایی ملی.",
-    'rial_title': "شرکت ریال پروفیل",
+    'rial_title': "فابریکه تولیدی ریل فابریکیت",
     'rial_desc': "متخصص در تولید پروفیل ها و مقاطع فولادی مهندسی شده دقیق برای مصارف تجاری و صنعتی.",
-    'zada_title': "پروفیل و فلزکاری زاده",
+    'zada_title': "شرکت تولید پروفیل هیواد نبی زاده استیل",
     'zada_desc': "یکی از بازیگران اصلی در بخش ساخت و ساز فولادی و تولید پروفیل در افغانستان، متعهد به دوام و اعتماد.",
 
     // شعارها و آدرس های جدید
@@ -520,7 +520,7 @@ const translations: Record<Language, Record<string, string>> = {
     'companies_desc': 'د صنعتي تولید کونکو او فابریکو په اړه معلومات ترلاسه کړئ چې د افغانستان د فولادو او پروفیل صنعت بنسټ جوړوي.',
     'all': 'ټول',
     'loading_units': 'د تولید واحدونه بارول کیږي...',
-    'view_profile': 'پروفایل وګورئ',
+    'view_profile': 'پروفیل وګورئ',
     'no_companies_found': 'په اتحادیه کې هیڅ شرکت ونه موندل شو.',
     'add_first_company': 'خپل لومړی شرکت اضافه کړئ',
     'read_more': 'نور ولولئ',
@@ -535,7 +535,7 @@ const translations: Record<Language, Record<string, string>> = {
     'location_label': 'موقعیت',
     'phone': 'تلیفون',
     'contact_email': 'info@uigpmca.af',
-    'contact_phone': '+93 74 709 8888',
+    'contact_phone': '۰۷۴۷۰۹۸۸۸۸',
     'contact_address': '۴۸ اپارتمان، ۱۱ پوړ، عظیم ټاور، دهن باغ، څلورمه ناحیه',
     'contact_address_country': 'کابل ښار، افغانستان',
     'contact_header': '( موږ سره اړیکه ونیسئ )',
@@ -592,12 +592,12 @@ const translations: Record<Language, Record<string, string>> = {
       'about_vision_title': 'زموږ لید',
       'about_vision_desc': 'افغانستان د صنعتي ځان بسیاینې په لور رهبري کول، چیرې چې په کور دننه تولید شوي د فولادو او پایپونو لوړ کیفیت لرونکي محصولات د ملي زیربناوو د پراختیا لپاره لومړنی انتخاب وي.',
       'core_values': 'اصلي ارزښتونه',
-      'value_integrity': 'رښتونولي',
-      'value_integrity_desc': 'په تولید او سوداګرۍ کې د لوړو اخلاقي معیارونو ساتل.',
-      'value_innovation': 'نوښت',
-      'value_innovation_desc': 'د تولیدي اسانتیاوو او تخنیکونو دوامداره عصري کول.',
-      'value_collaboration': 'همکاري',
-      'value_collaboration_desc': 'د غړو او ذینفعانو ترمنځ د قوي مشارکتونو رامینځته کول.',
+      'value_integrity': 'آبادی',
+      'value_integrity_desc': 'د هیواد په رغونه او آبادۍ کې فعاله برخه اخیستل.',
+      'value_innovation': 'توسعه',
+      'value_innovation_desc': 'په ټول هیواد کې د صنعتي ظرفیتونو او وړتیاوو پراخول.',
+      'value_collaboration': 'ترقی',
+      'value_collaboration_desc': 'دوامداره پرمختګ او عصري صنعتي ودې ته رسیدل.',
 
     // Products Section
     'products_header': '( زموږ محصولات )',
@@ -623,25 +623,25 @@ const translations: Record<Language, Record<string, string>> = {
     'trusted_leaders': 'د مشرانو لخوا باور شوی',
 
     // Slider / Companies Carousel
-    'slider_1_t1': 'آریا صنعت', 'slider_1_t2': 'پروفیل تولیدي شرکت', 'slider_1_t3': '',
+    'slider_1_t1': 'آریا صنعت', 'slider_1_t2': 'د پروفیل تولیدي شرکت', 'slider_1_t3': '',
     'slider_1_desc': 'د آریا صنعت پروفیل تولید شرکت یو تولیدي او صنعتي سوداګریز شرکت دی چې په هرات، افغانستان کې فعالیت کوي. دا سوداګري د صنعتي پروفیل تولید او اړوندو فولادو یا فلزي پروسس فعالیتونو کې پیژندل کیږي.',
     
-    'slider_2_t1': 'فولاد افغانستان', 'slider_2_t2': 'تولیدي فابریکو اتحادیه', 'slider_2_t3': '',
+    'slider_2_t1': 'شمال پروفیل', 'slider_2_t2': 'صنعتي او تولیدي شرکت', 'slider_2_t3': '',
     'slider_2_desc': 'د سیمې په کچه د صنعتي ودې او تولیدي سکتورونو ادغام ملاتړ د فولادو او فلزي غوره والي باندې تمرکز سره. د ملي پراختیایی پروژو لپاره اړین زیربنایی برخې چمتو کول.',
     
-    'slider_3_t1': 'فولاد صنعت', 'slider_3_t2': 'آهن او فولاد فابریکه', 'slider_3_t3': '',
+    'slider_3_t1': 'فولاد صنعت', 'slider_3_t2': 'د اوسپنې او فولادو فابریکه', 'slider_3_t3': '',
     'slider_3_desc': 'په افغانستان کې د درنو صنایعو او فولادو پروسس په برخه کې مخکښ. د ځایی بازار لپاره د لوړ کیفیت ساختماني موادو وړاندې کولو لپاره په عصري ټیکنالوژۍ سمبال.',
     
-    'slider_4_t1': 'فضلی غزنوی', 'slider_4_t2': 'پایپ تولید شرکت', 'slider_4_t3': '',
+    'slider_4_t1': 'فضلي غزنوي', 'slider_4_t2': 'د پایپ تولیدي شرکت', 'slider_4_t3': '',
     'slider_4_desc': 'د لوړ کیفیت پایپ تولید او صنعتي حلونو کې تخصص. د لویو ساختماني پروژو لپاره مسلکي زیربنایی برخو وړاندې کولو ته ژمن.',
     
-    'slider_5_t1': 'صنعتي تولیدات', 'slider_5_t2': 'هرات، افغانستان', 'slider_5_t3': '',
+    'slider_5_t1': 'شیرزاد استیل', 'slider_5_t2': 'د پروفیل تولیدي شرکت', 'slider_5_t3': '',
     'slider_5_desc': 'په هرات سوداګریزه سیمه کې د صنعتي نوښت او تولیدي غوره والي یو مرکز. د ځانګړي تولیدي او سوداګریزو خدماتو له لارې د سیمه ایزې اقتصادي ودې لامل کیږي.',
     
     'slider_6_t1': 'نوید مزار', 'slider_6_t2': 'صنعتی شرکت', 'slider_6_t3': '',
     'slider_6_desc': 'مزارشریف او هاخوا ته د صنعتي تولید غوره والي پراختیا. د لوی کچې زیربنا او صنعتي اړتیاو لپاره ځایی شوي تولیدي حلونه وړاندې کول.',
     
-    'slider_7_t1': 'جنرال متال', 'slider_7_t2': 'او فولاد ساختماني', 'slider_7_t3': '',
+    'slider_7_t1': 'قادر کامران', 'slider_7_t2': 'د کامران پروفیل تولیدي', 'slider_7_t3': '',
     'slider_7_desc': 'د پرمختللي فلزي پروسس او انجینرۍ له لارې د افغانستان لپاره د پیاوړې راتلونکې جوړول. د تولیدي اتحادیې ژمن غړی چې په کیفیت او پایښت تمرکز کوي.',
 
     // Detailed About Content
@@ -667,8 +667,8 @@ const translations: Record<Language, Record<string, string>> = {
     'shirzad_slogan': "شیرزاد استیل؛ د هېواد د پروفیل صنعت کې یوه بېله لاره",
 
     // Member - Shamal Profile
-    'shamal_title': "شمال پروفایل صنعتي او تولیدي شرکت",
-    'shamal_desc': `شمال پروفایل صنعتي او تولیدي شرکت د جواز نمبر (D-01-1536) لرونکی دی چې په کال ۱۳۹۳ (۲۰۱۴) کې د بلخ ولایت په شمالي افغانستان کې تاسیس شو. په کال ۱۳۹۹ (۲۰۲۰) کې دغه شرکت خپله دوهمه نمایندګي د کابل په صنعتي پارکونو کې پرانستله.\n\nهمدارنګه، د دې فابریکې درېیمه نمایندګي چې له عصري ماشینونو سره مجهزه ده، ډېر ژر په مزارشریف کې پرانستل کېږي. د دې شرکت فابریکې د ۲۴ ساعتونو په موده کې د ۳۰۰ ټنه تولید ظرفیت لري او کلنی تولید یې ۱۰۹،۵۰۰ ټنه دی.\n\nدغه شرکت بېلابېلو پروفیلونو (۱۰x۱۰ تر ۱۴۰x۱۴۰)، قطیو، د اوسپنې او جستي پایپونو (۱.۳ سانتي تر ۸ انچه)، او د هنګرونو د جوړولو اوسپنیزو موادو تولید او عرضه کوي.`,
+    'shamal_title': "شمال پروفیل صنعتي او تولیدي شرکت",
+    'shamal_desc': `شمال پروفیل صنعتي او تولیدي شرکت د جواز نمبر (D-01-1536) لرونکی دی چې په کال ۱۳۹۳ (۲۰۱۴) کې د بلخ ولایت په شمالي افغانستان کې تاسیس شو. په کال ۱۳۹۹ (۲۰۲۰) کې دغه شرکت خپله دوهمه نمایندګي د کابل په صنعتي پارکونو کې پرانستله.\n\nهمدارنګه، د دې فابریکې درېیمه نمایندګي چې له عصري ماشینونو سره مجهزه ده، ډېر ژر په مزارشریف کې پرانستل کېږي. د دې شرکت فابریکې د ۲۴ ساعتونو په موده کې د ۳۰۰ ټنه تولید ظرفیت لري او کلنی تولید یې ۱۰۹،۵۰۰ ټنه دی.\n\nدغه شرکت بېلابېلو پروفیلونو (۱۰x۱۰ تر ۱۴۰x۱۴۰)، قطیو، د اوسپنې او جستي پایپونو (۱.۳ سانتي تر ۸ انچه)، او د هنګرونو د جوړولو اوسپنیزو موادو تولید او عرضه کوي.`,
     'shamal_factory_label': "د فابریکې پته:",
     'shamal_factory_addr': "د کابل صنعتي پارکونه او بلخ ولایت",
     'shamal_sales_label': "د پلور دفتر:",

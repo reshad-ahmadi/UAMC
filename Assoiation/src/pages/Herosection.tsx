@@ -16,7 +16,7 @@ const HeroSection = () => {
       {/* Background Image & Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          alt="UAMC Official Background"
+          alt="USMA Official Background"
           className="w-full h-full object-cover object-center lg:object-center"
           src="/images/bg2.png"
         />

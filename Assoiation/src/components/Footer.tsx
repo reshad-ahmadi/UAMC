@@ -48,7 +48,7 @@ const Footer = () => {
                   style={{ maskImage: 'radial-gradient(circle, black 68%, transparent 70%)', WebkitMaskImage: 'radial-gradient(circle, black 68%, transparent 70%)' }}
                 />
               </div>
-              <span className="text-xl 2xl:text-4xl font-bold tracking-tight text-white group-hover:text-brand-primary transition-colors">UAMC</span>
+              <span className="text-xl 2xl:text-4xl font-bold tracking-tight text-white group-hover:text-brand-primary transition-colors">USMA</span>
             </Link>
             <p className="text-gray-400 leading-relaxed text-xs sm:text-sm 2xl:text-xl max-w-xs 2xl:max-w-md">
               {t('association_desc')}

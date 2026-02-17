@@ -63,7 +63,7 @@ export default function Navbar() {
             />
           </div>
           <div className="flex flex-col leading-tight">
-            <span className="font-black text-blue-900 tracking-tighter text-xl 2xl:text-4xl">UAMC</span>
+            <span className="font-black text-blue-900 tracking-tighter text-xl 2xl:text-4xl">USMA</span>
           </div>
         </Link>
         
