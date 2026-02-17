@@ -40,7 +40,8 @@ const translations: Record<Language, Record<string, string>> = {
     // Hero Section
     'powered_by': 'Powered by Community',
     'hero_title_1': 'Union of Steel and Galvanized Round Pipe,',
-    'hero_title_2': 'Profile, and can Manufacturing Companies of Afghanistan',
+    'hero_title_2': 'Profile, and can Manufacturing',
+    'hero_title_3': 'Companies of Afghanistan',
     'hero_desc': 'The Union of Steel and Galvanized Round Pipe, Profile, and can Manufacturing Companies of Afghanistan was established in 2024 (1403 in the Afghan calendar) with the primary objective of fostering internal coordination among related manufacturing industries and strengthening cooperation with governmental and non-governmental institutions.',
     'official_voice': 'The Official Voice of Afghan Manufacturing',
     'contact_us': 'CONTACT US',
@@ -270,7 +271,8 @@ const translations: Record<Language, Record<string, string>> = {
     // Hero Section
     'powered_by': 'قدرت گرفته از جامعه',
     'hero_title_1': 'اتحادیه شرکت های تولیدی',
-    'hero_title_2': 'قوطی، پروفیل، نل آهنی وجستی افغانستان',
+    'hero_title_2': 'قوطی، پروفیل، نل آهنی وجستی',
+    'hero_title_3': 'افغانستان',
     'hero_desc': 'اتحادیه شرکتهای تولیدی قوطی، پروفیل، نل آهنی و جستی افغانستان با هدف ایجاد هماهنگی درون سازمانی میان صنایع تولیدی مرتبط و همچنین تقویت تعامل با نهادهای دولتی و غیردولتی، در سال ۱۴۰۳ خورشیدی تأسیس گردیده، و این اتحادیه با رویکرد ارتقای کیفیت و افزایش کمیت محصولات تولیدی، به تاریخ ۸/۸/۱۴۰۴ خورشیدی موفق به اخذ جواز رسمی فعالیت از وزارت عدلیه امارت اسلامی افغانستان شد و از همان تاریخ فعالیتهای عملی خویش را آغاز نمود',
     'official_voice': 'صدای رسمی تولیدات افغانستان',
     'contact_us': 'تماس با ما',
@@ -500,8 +502,9 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Hero Section
     'powered_by': 'د ټولنې لخوا ځواکمن شوی',
-    'hero_title_1': 'د افغانستان د قوطۍ، پروفیل، اوسپنیزو او جستي پایپونو',
-    'hero_title_2': 'د تولیدي شرکتونو اتحادیه',
+    'hero_title_1': 'د افغانستان د قوطۍ، پروفیل،',
+    'hero_title_2': 'اوسپنیزو او جستي پایپونو',
+    'hero_title_3': 'د تولیدي شرکتونو اتحادیه',
     'hero_desc': 'د افغانستان د قوطۍ، پروفیل، اوسپنیزو او جستي پایپونو د تولیدي شرکتونو اتحادیه په ۱۴۰۳ هجري لمریز کال کې د دې لپاره تأسیس شوه چې د اړوندو تولیدي صنعتونو ترمنځ داخلي همغږي رامنځته کړي او د دولتي او غیر دولتي بنسټونو سره تعامل او همکاري پیاوړې کړي. دغه اتحادیه د تولیداتو د کیفیت او کمیت د لوړولو په موخه، د ۱۴۰۴ هجري لمریز کال د لړم په ۸مه نېټه د افغانستان د اسلامي امارت د عدلیې وزارت څخه رسمي جواز ترلاسه کړ او له همدې نېټې یې عملي فعالیتونه پیل کړل.',
     'official_voice': 'د افغان تولیداتو رسمي غږ',
     'contact_us': 'اړیکه ونیسئ',

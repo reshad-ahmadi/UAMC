@@ -40,7 +40,7 @@ const HeroSection = () => {
         {/* Heading */}
         <h1 
           ref={headingAnimation.ref}
-          className={`text-2xl sm:text-3xl md:text-[30px] lg:text-4xl 2xl:text-6xl font-bold text-white
+          className={`text-2xl sm:text-3xl md:text-[28px] lg:text-3xl 2xl:text-5xl font-bold text-white
              w-full max-w-[90vw] md:max-w-full mx-auto leading-tight
              mb-6 2xl:mb-8 tracking-tight drop-shadow-sm px-2 transition-all duration-1000 delay-150 ${
             headingAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
@@ -49,6 +49,9 @@ const HeroSection = () => {
           <span className="md:whitespace-nowrap block">{t('hero_title_1')}</span>
           <span className="block mt-2 text-blue-200 drop-shadow-[0_0_40px_rgba(37,99,235,0.4)]">
             {t('hero_title_2')}
+          </span>
+          <span className="block mt-2 text-white">
+            {t('hero_title_3')}
           </span>
         </h1>
 
