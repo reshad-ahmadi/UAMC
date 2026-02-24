@@ -4,19 +4,19 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const products = [
   {
-    image: '/images/iron-pipes.jpg',
+    image: '/images/companysimage/company2.png',
     titleKey: 'product_iron_title',
     descKey: 'product_iron_desc',
     features: ['product_iron_f1', 'product_iron_f2', 'product_iron_f3'],
   },
   {
-    image: '/images/galvanized-pipes.jpg',
+    image: '/images/companysimage/company1.png',
     titleKey: 'product_galvanized_title',
     descKey: 'product_galvanized_desc',
     features: ['product_galvanized_f1', 'product_galvanized_f2', 'product_galvanized_f3'],
   },
   {
-    image: '/images/steel-profiles.jpg',
+    image: '/images/companysimage/company3.png',
     titleKey: 'product_profiles_title',
     descKey: 'product_profiles_desc',
     features: ['product_profiles_f1', 'product_profiles_f2', 'product_profiles_f3'],

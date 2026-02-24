@@ -14,13 +14,13 @@ export default function TaxationServices() {
   }, []);
 
   const backgroundImages = [
-    '/images/slide-ariya-profile.jpg',
-    '/images/slide-steel-union.jpg',
-    '/images/slide-folad-iron.jpg',
-    '/images/slide-pipe-production.jpg',
-    '/images/slide-herat-industrial.jpg',
-    '/images/slide-mazar-factory.jpg',
-    '/images/slide-metal-construction.jpg'
+   '/images/companysimage/company1.png',
+   '/images/companysimage/company2.png',
+   '/images/companysimage/company3.png',
+   '/images/companysimage/company4.png',
+   '/images/companysimage/company1.png',
+   '/images/companysimage/company4.png',
+   '/images/companysimage/company2.png',
   ];
 
   const pageData = [
