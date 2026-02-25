@@ -21,7 +21,27 @@ const uploadStorage = multer.diskStorage({
 const upload = multer({ storage: uploadStorage });
 
 // Middleware
-app.use(cors());
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:3000',
+  process.env.FRONTEND_URL, // e.g. https://your-app.vercel.app
+].filter(Boolean);
+
+app.use(cors({
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps, curl, Render health check)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) !== -1 || allowedOrigins.some(o => origin.startsWith(o))) {
+      return callback(null, true);
+    }
+    // In production allow all vercel.app domains for flexibility
+    if (process.env.NODE_ENV === 'production' && (origin.endsWith('.vercel.app') || origin.endsWith('.onrender.com'))) {
+      return callback(null, true);
+    }
+    callback(null, true); // Allow all for now; restrict after testing
+  },
+  credentials: true,
+}));
 app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
