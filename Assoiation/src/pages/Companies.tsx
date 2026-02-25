@@ -141,8 +141,54 @@ const CompanyCard = ({ company, t, language }: { company: any, t: any, language:
 };
 
 export default function Companies() {
-  const { language, t, companies } = useLanguage();
+  const { language, t, companies: staticCompanies } = useLanguage();
+  const [dynamicCompanies, setDynamicCompanies] = React.useState<any[]>([]);
+  const [showLogin, setShowLogin] = React.useState(false);
+  const [loginData, setLoginData] = React.useState({ name: '', password: '' });
+  const [error, setError] = React.useState('');
   const isRTL = language === 'da' || language === 'ps';
+
+  React.useEffect(() => {
+    const fetchCompanies = async () => {
+      try {
+        const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+        const response = await fetch(`${apiUrl}/api/companies`);
+        if (response.ok) {
+          const data = await response.json();
+          // Map backend fields to frontend interface if necessary
+          const mappedData = data.map((c: any) => ({
+            id: c.id,
+            title: c.name,
+            image: c.image || '/images/slide-pipe-production.jpg',
+            description: c.description,
+            factoryAddressLabel: language === 'en' ? 'Location' : 'موقعیت',
+            factoryAddress: c.location,
+            salesLabel: '',
+            salesAddress: '',
+            phoneLabel: '',
+            phone: '',
+            sloganLabel: '',
+            slogan: ''
+          }));
+          setDynamicCompanies(mappedData);
+        }
+      } catch (error) {
+        console.error('Error fetching companies:', error);
+      }
+    };
+    fetchCompanies();
+  }, [language]);
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (loginData.name === 'Admin01' && loginData.password === 'Admin0912') {
+      window.location.href = '/admin'; // Matches the route in App.tsx
+    } else {
+      setError('Invalid input Name or Password');
+    }
+  };
+
+  const allCompanies = [...staticCompanies, ...dynamicCompanies];
 
   React.useEffect(() => {
     // Handle scrolling to hash if present
@@ -168,14 +214,68 @@ export default function Companies() {
         <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-6 mt-[60px] lg:mt-[20px] md:mt-[20px] 2xl:mt-[60px] ">
           <span className="text-blue-500">{t('our_members') || 'Our Members'}</span>
         </h1>
-        <p className="text-gray-400 max-w-2xl mx-auto text-base md:text-lg">
+        <p className="text-gray-400 max-w-2xl mx-auto text-base md:text-lg mb-8">
           {t('companies_desc') || "Discover the leading manufacturers shaping Afghanistan's industrial future."}
         </p>
+        
+        <button 
+          onClick={() => setShowLogin(true)}
+          className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3 rounded-xl font-bold transition-all shadow-lg shadow-blue-600/20 active:scale-95"
+        >
+          Add
+        </button>
       </div>
+
+      {/* Login Modal */}
+      {showLogin && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+          <div className="bg-[#0B161B] border border-white/10 rounded-[2rem] p-8 w-full max-w-md animate-in fade-in zoom-in-95 duration-300">
+            <h2 className="text-2xl font-bold mb-6 text-center">Admin Access</h2>
+            <form onSubmit={handleLogin} className="space-y-4">
+              <div>
+                <label className="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-1 ml-1">Name</label>
+                <input 
+                  type="text" 
+                  value={loginData.name}
+                  onChange={(e) => setLoginData({...loginData, name: e.target.value})}
+                  className="w-full bg-black/40 border border-white/10 rounded-xl py-3 px-4 outline-none focus:border-blue-500 transition-all"
+                  placeholder="Enter admin name"
+                />
+              </div>
+              <div>
+                <label className="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-1 ml-1">Password</label>
+                <input 
+                  type="password" 
+                  value={loginData.password}
+                  onChange={(e) => setLoginData({...loginData, password: e.target.value})}
+                  className="w-full bg-black/40 border border-white/10 rounded-xl py-3 px-4 outline-none focus:border-blue-500 transition-all"
+                  placeholder="Enter password"
+                />
+              </div>
+              {error && <p className="text-red-500 text-xs text-center">{error}</p>}
+              <div className="flex gap-3 pt-2">
+                <button 
+                  type="button"
+                  onClick={() => setShowLogin(false)}
+                  className="flex-1 bg-white/5 hover:bg-white/10 text-white py-3 rounded-xl font-bold transition-all"
+                >
+                  Cancel
+                </button>
+                <button 
+                  type="submit"
+                  className="flex-1 bg-blue-600 hover:bg-blue-500 text-white py-3 rounded-xl font-bold transition-all"
+                >
+                  Confirm
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
 
       <main className="max-w-7xl mx-auto px-6 lg:px-12 pb-32">
         <div className="space-y-24">
-          {companies.map((company) => (
+          {allCompanies.map((company) => (
             <CompanyCard key={company.id} company={company} t={t} language={language} />
           ))}
         </div>

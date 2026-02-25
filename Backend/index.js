@@ -121,7 +121,7 @@ app.post('/api/companies', async (req, res) => {
     res.status(201).json(result.rows[0]);
   } catch (err) {
     console.error('DB_INSERT_ERROR:', err.message);
-    res.status(500).json({ error: 'Failed to add company' });
+    res.status(500).json({ error: `Database error: ${err.message}` });
   }
 });
 

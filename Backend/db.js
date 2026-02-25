@@ -1,22 +1,21 @@
 const { Pool } = require('pg');
-require('dotenv').config();
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '.env') });
+
+const connectionParams = {
+  user: process.env.DB_USER || 'postgres',
+  host: process.env.DB_HOST || '127.0.0.1',
+  database: process.env.DB_NAME || 'postgres',
+  password: process.env.DB_PASSWORD || 'postgres',
+  port: parseInt(process.env.DB_PORT) || 5432,
+  ssl: process.env.NODE_ENV === 'production' || process.env.DB_SSL === 'true' ? { rejectUnauthorized: false } : false,
+};
 
 const pool = new Pool(
-  process.env.DB_URL
-    ? {
-        connectionString: process.env.DB_URL,
-        ssl: process.env.NODE_ENV === 'production' || process.env.DB_SSL === 'true' ? { rejectUnauthorized: false } : false,
-      }
-    : {
-        user: process.env.DB_USER,
-        host: process.env.DB_HOST,
-        database: process.env.DB_NAME,
-        password: process.env.DB_PASSWORD,
-        port: process.env.DB_PORT || 5432,
-        ssl: process.env.NODE_ENV === 'production' || process.env.DB_SSL === 'true' ? { rejectUnauthorized: false } : false,
-        connectionTimeoutMillis: 5000,
-      }
+  process.env.DB_URL ? { connectionString: process.env.DB_URL, ssl: connectionParams.ssl } : connectionParams
 );
+
+console.log(`📡 Attempting DB connection to: ${connectionParams.host}:${connectionParams.port} (User: ${connectionParams.user})`);
 
 // Create table if it doesn't exist
 const initDb = async () => {
