@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Plus, User, Lock, Building, MapPin, TextQuote, Image, Loader2, CheckCircle2 } from 'lucide-react';
+import { Plus, User, Lock, Building, MapPin, TextQuote, Image, Loader2, CheckCircle2, Trash2 } from 'lucide-react';
 
 export default function App() {
   const [step, setStep] = useState<'home' | 'login' | 'dashboard'>('home');
@@ -11,13 +11,54 @@ export default function App() {
     category: '',
     description: '',
     location: '',
-    image: ''
+    factory_address: '',
+    sales_office_address: '',
+    contact_numbers: '',
+    image: '',
+    logo: ''
   });
   const [imageFile, setImageFile] = useState<File | null>(null);
+  const [logoFile, setLogoFile] = useState<File | null>(null);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState({ type: '', text: '' });
+  const [companies, setCompanies] = useState<any[]>([]);
 
   const API_URL = 'http://localhost:5000'; // Make sure this matches your backend
+
+  useEffect(() => {
+    if (step === 'dashboard') {
+      fetchCompanies();
+    }
+  }, [step]);
+
+  const fetchCompanies = async () => {
+    try {
+      const res = await fetch(`${API_URL}/api/companies`);
+      const data = await res.json();
+      setCompanies(data);
+    } catch (err) {
+      console.error('Error fetching companies:', err);
+    }
+  };
+
+  const handleDelete = async (id: number) => {
+    if (!confirm('Are you sure you want to delete this member?')) return;
+    
+    try {
+      const res = await fetch(`${API_URL}/api/companies/${id}`, {
+        method: 'DELETE',
+      });
+      if (res.ok) {
+        setMessage({ type: 'success', text: 'Member deleted successfully!' });
+        fetchCompanies();
+      } else {
+        setMessage({ type: 'error', text: 'Failed to delete member.' });
+      }
+    } catch (err) {
+      console.error('Error deleting company:', err);
+      setMessage({ type: 'error', text: 'Server error during deletion.' });
+    }
+  };
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -35,6 +76,12 @@ export default function App() {
     }
   };
 
+  const handleLogoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setLogoFile(e.target.files[0]);
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -42,8 +89,9 @@ export default function App() {
 
     try {
       let finalImageUrl = formData.image;
+      let finalLogoUrl = formData.logo;
 
-      // 1. Upload Image if file exists
+      // 1. Upload Main Image if file exists
       if (imageFile) {
         const uploadData = new FormData();
         uploadData.append('image', imageFile);
@@ -53,22 +101,43 @@ export default function App() {
           body: uploadData,
         });
 
-        if (!uploadRes.ok) throw new Error('Image upload failed');
+        if (!uploadRes.ok) throw new Error('Main image upload failed');
         const uploadResult = await uploadRes.json();
         finalImageUrl = uploadResult.imageUrl;
       }
 
-      // 2. Add Company
+      // 2. Upload Logo Image if file exists
+      if (logoFile) {
+        const uploadData = new FormData();
+        uploadData.append('image', logoFile);
+
+        const uploadRes = await fetch(`${API_URL}/api/upload`, {
+          method: 'POST',
+          body: uploadData,
+        });
+
+        if (!uploadRes.ok) throw new Error('Logo upload failed');
+        const uploadResult = await uploadRes.json();
+        finalLogoUrl = uploadResult.imageUrl;
+      }
+
+      // 3. Add Company
       const response = await fetch(`${API_URL}/api/companies`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...formData, image: finalImageUrl }),
+        body: JSON.stringify({ ...formData, image: finalImageUrl, logo: finalLogoUrl }),
       });
 
       if (response.ok) {
         setMessage({ type: 'success', text: 'Member added successfully!' });
-        setFormData({ name: '', category: '', description: '', location: '', image: '' });
+        setFormData({ 
+          name: '', category: '', description: '', location: '', 
+          factory_address: '', sales_office_address: '', contact_numbers: '',
+          image: '', logo: '' 
+        });
         setImageFile(null);
+        setLogoFile(null);
+        fetchCompanies();
       } else {
         setMessage({ type: 'error', text: 'Failed to add member.' });
       }
@@ -91,10 +160,14 @@ export default function App() {
       <nav className="relative z-10 border-b border-white/5 bg-black/20 backdrop-blur-xl px-6 py-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-600/20">
-              <Building className="text-white" size={24} />
+            <div className="w-10 h-10 rounded-xl overflow-hidden bg-white flex items-center justify-center shadow-lg shadow-blue-600/20">
+              <img 
+                src="/images/shah.png" 
+                alt="USMA Logo" 
+                className="w-full h-full object-contain"
+              />
             </div>
-            <span className="text-xl font-bold tracking-tight">UAMC <span className="text-blue-500">Admin</span></span>
+            <span className="text-xl font-bold tracking-tight">USMA <span className="text-blue-500">Admin</span></span>
           </div>
           {step === 'dashboard' && (
             <button 
@@ -114,7 +187,7 @@ export default function App() {
               Manage Your <span className="text-blue-500">Members</span>
             </h1>
             <p className="text-gray-400 text-lg mb-12 max-w-2xl mx-auto">
-              Welcome to the UAMC administration portal. Add and manage federation members with ease.
+              Welcome to the USMA administration portal. Add and manage federation members with ease.
             </p>
             <button 
               onClick={() => setStep('login')}
@@ -231,34 +304,88 @@ export default function App() {
                   </div>
                 </div>
 
-                <div className="space-y-2">
-                  <label className="flex items-center gap-2 text-sm font-bold text-gray-400 uppercase tracking-widest px-1">
-                    <MapPin size={16} /> Location
-                  </label>
-                  <input 
-                    type="text" name="location" required value={formData.location} 
-                    onChange={(e) => setFormData({...formData, [e.target.name]: e.target.value})}
-                    className="w-full bg-black/40 border border-white/10 rounded-2xl py-4 px-5 outline-none focus:border-blue-500 transition-all"
-                    placeholder="e.g. Mazar-i-Sharif, Balkh"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <label className="flex items-center gap-2 text-sm font-bold text-gray-400 uppercase tracking-widest px-1">
-                    <Image size={16} /> Company Image / Logo
-                  </label>
-                  <div className="relative group cursor-pointer">
+                  <div className="space-y-2">
+                    <label className="flex items-center gap-2 text-sm font-bold text-gray-400 uppercase tracking-widest px-1">
+                      <MapPin size={16} /> Location
+                    </label>
                     <input 
-                      type="file" accept="image/*" onChange={handleFileChange}
-                      className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                      type="text" name="location" required value={formData.location} 
+                      onChange={(e) => setFormData({...formData, [e.target.name]: e.target.value})}
+                      className="w-full bg-black/40 border border-white/10 rounded-2xl py-4 px-5 outline-none focus:border-blue-500 transition-all"
+                      placeholder="e.g. Herat Industrial Park"
                     />
-                    <div className="w-full bg-black/40 border-2 border-dashed border-white/10 rounded-3xl py-12 flex flex-col items-center justify-center transition-all group-hover:border-blue-500/50 group-hover:bg-blue-500/5">
-                      <Image className="text-gray-600 mb-4 group-hover:text-blue-500 transition-colors" size={48} />
-                      <p className="text-gray-400 font-medium">{imageFile ? imageFile.name : 'Click to upload image'}</p>
-                      <p className="text-gray-600 text-xs mt-2 uppercase tracking-tighter">JPG, PNG or WEBP (Max 5MB)</p>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="space-y-2">
+                      <label className="flex items-center gap-2 text-sm font-bold text-gray-400 uppercase tracking-widest px-1">
+                        <MapPin size={16} /> Factory Address
+                      </label>
+                      <input 
+                        type="text" name="factory_address" required value={formData.factory_address} 
+                        onChange={(e) => setFormData({...formData, [e.target.name]: e.target.value})}
+                        className="w-full bg-black/40 border border-white/10 rounded-2xl py-4 px-5 outline-none focus:border-blue-500 transition-all"
+                        placeholder="e.g. Herat Industrial Park, Phase 2"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="flex items-center gap-2 text-sm font-bold text-gray-400 uppercase tracking-widest px-1">
+                        <MapPin size={16} /> Sales Office Address
+                      </label>
+                      <input 
+                        type="text" name="sales_office_address" required value={formData.sales_office_address} 
+                        onChange={(e) => setFormData({...formData, [e.target.name]: e.target.value})}
+                        className="w-full bg-black/40 border border-white/10 rounded-2xl py-4 px-5 outline-none focus:border-blue-500 transition-all"
+                        placeholder="e.g. Herat, Bakrabad Roundabout"
+                      />
                     </div>
                   </div>
-                </div>
+
+                  <div className="space-y-2">
+                    <label className="flex items-center gap-2 text-sm font-bold text-gray-400 uppercase tracking-widest px-1">
+                      <Plus size={16} /> Contact Numbers
+                    </label>
+                    <input 
+                      type="text" name="contact_numbers" required value={formData.contact_numbers} 
+                      onChange={(e) => setFormData({...formData, [e.target.name]: e.target.value})}
+                      className="w-full bg-black/40 border border-white/10 rounded-2xl py-4 px-5 outline-none focus:border-blue-500 transition-all"
+                      placeholder="e.g. 0708000500 - 0792101010"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="space-y-2">
+                      <label className="flex items-center gap-2 text-sm font-bold text-gray-400 uppercase tracking-widest px-1">
+                        <Image size={16} /> Company Logo (PNG/Square)
+                      </label>
+                      <div className="relative group cursor-pointer">
+                        <input 
+                          type="file" accept="image/*" onChange={handleLogoChange}
+                          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                        />
+                        <div className="w-full bg-black/40 border-2 border-dashed border-white/10 rounded-3xl py-8 flex flex-col items-center justify-center transition-all group-hover:border-blue-500/50 group-hover:bg-blue-500/5 text-center">
+                          <Image className="text-gray-600 mb-2 group-hover:text-blue-500 transition-colors" size={32} />
+                          <p className="text-gray-400 text-sm font-medium">{logoFile ? logoFile.name : 'Upload Logo'}</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="flex items-center gap-2 text-sm font-bold text-gray-400 uppercase tracking-widest px-1">
+                        <Image size={16} /> Main Background Image
+                      </label>
+                      <div className="relative group cursor-pointer">
+                        <input 
+                          type="file" accept="image/*" onChange={handleFileChange}
+                          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                        />
+                        <div className="w-full bg-black/40 border-2 border-dashed border-white/10 rounded-3xl py-8 flex flex-col items-center justify-center transition-all group-hover:border-blue-500/50 group-hover:bg-blue-500/5 text-center">
+                          <Image className="text-gray-600 mb-2 group-hover:text-blue-500 transition-colors" size={32} />
+                          <p className="text-gray-400 text-sm font-medium">{imageFile ? imageFile.name : 'Upload Background'}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
                 <div className="space-y-2">
                   <label className="flex items-center gap-2 text-sm font-bold text-gray-400 uppercase tracking-widest px-1">
@@ -283,12 +410,47 @@ export default function App() {
                 </div>
               </form>
             </div>
+
+            {/* Existing Members Section */}
+            <div className="mt-20">
+              <h3 className="text-2xl font-bold mb-8">Existing <span className="text-blue-500">Members</span></h3>
+              <div className="grid grid-cols-1 gap-4">
+                {companies.length === 0 ? (
+                  <p className="text-gray-500 italic">No members found in the database.</p>
+                ) : (
+                  companies.map((company) => (
+                    <div key={company.id} className="bg-[#0B161B] border border-white/5 rounded-2xl p-6 flex justify-between items-center group hover:border-white/10 transition-all">
+                      <div className="flex items-center gap-4">
+                        <div className="w-12 h-12 bg-white/5 rounded-xl overflow-hidden flex items-center justify-center">
+                          {company.image ? (
+                            <img src={company.image} alt={company.name} className="w-full h-full object-cover" />
+                          ) : (
+                            <Building className="text-gray-600" size={24} />
+                          )}
+                        </div>
+                        <div>
+                          <h4 className="font-bold text-lg">{company.name}</h4>
+                          <p className="text-sm text-gray-400">{company.category}</p>
+                        </div>
+                      </div>
+                      <button 
+                        onClick={() => handleDelete(company.id)}
+                        className="p-3 text-gray-500 hover:text-red-500 hover:bg-red-500/10 rounded-xl transition-all"
+                        title="Delete Member"
+                      >
+                        <Trash2 size={20} />
+                      </button>
+                    </div>
+                  ))
+                )}
+              </div>
+            </div>
           </div>
         )}
       </main>
 
       <footer className="relative z-10 py-12 text-center text-gray-600 text-sm">
-        <p>&copy; {new Date().getFullYear()} UAMC Federation Control. Secure Access.</p>
+        <p>&copy; {new Date().getFullYear()} USMA Federation Control. Secure Access.</p>
       </footer>
     </div>
   );

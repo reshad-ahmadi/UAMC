@@ -45,6 +45,11 @@ const CompanyCard = ({ company, t, language }: { company: any, t: any, language:
               <h2 className="text-3xl md:text-4xl font-bold text-white group-hover:text-blue-400 transition-colors leading-tight">
                 {company.title}
               </h2>
+              {company.category && (
+                <div className="mt-2 inline-block px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full">
+                  <span className="text-xs font-bold text-blue-400 uppercase tracking-widest">{company.category}</span>
+                </div>
+              )}
               <div className="w-20 h-1 bg-blue-500 rounded-full mt-4 group-hover:w-32 transition-all duration-500"></div>
             </div>
             
@@ -158,16 +163,18 @@ export default function Companies() {
           // Map backend fields to frontend interface if necessary
           const mappedData = data.map((c: any) => ({
             id: c.id,
-            title: c.name,
+            title: language === 'en' ? c.name_en : (language === 'da' ? c.name_da : c.name_ps),
             image: c.image || '/images/slide-pipe-production.jpg',
-            description: c.description,
-            factoryAddressLabel: language === 'en' ? 'Location' : 'موقعیت',
-            factoryAddress: c.location,
-            salesLabel: '',
-            salesAddress: '',
-            phoneLabel: '',
-            phone: '',
-            sloganLabel: '',
+            logo: c.logo,
+            description: language === 'en' ? c.description_en : (language === 'da' ? c.description_da : c.description_ps),
+            category: language === 'en' ? c.category_en : (language === 'da' ? c.category_da : c.category_ps),
+            factoryAddressLabel: t('factory_address'),
+            factoryAddress: language === 'en' ? c.factory_address_en : (language === 'da' ? c.factory_address_da : c.factory_address_ps),
+            salesLabel: t('sales_office'),
+            salesAddress: language === 'en' ? c.sales_office_address_en : (language === 'da' ? c.sales_office_address_da : c.sales_office_address_ps),
+            phoneLabel: t('contact_numbers'),
+            phone: language === 'en' ? c.contact_numbers_en : (language === 'da' ? c.contact_numbers_da : c.contact_numbers_ps),
+            sloganLabel: t('company_slogan'),
             slogan: ''
           }));
           setDynamicCompanies(mappedData);
@@ -181,10 +188,10 @@ export default function Companies() {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    if (loginData.name === 'Admin01' && loginData.password === 'Admin0912') {
+    if (loginData.password === 'Admin0912') {
       window.location.href = '/admin'; // Matches the route in App.tsx
     } else {
-      setError('Invalid input Name or Password');
+      setError('Invalid Access Code');
     }
   };
 
@@ -233,23 +240,13 @@ export default function Companies() {
             <h2 className="text-2xl font-bold mb-6 text-center">Admin Access</h2>
             <form onSubmit={handleLogin} className="space-y-4">
               <div>
-                <label className="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-1 ml-1">Name</label>
-                <input 
-                  type="text" 
-                  value={loginData.name}
-                  onChange={(e) => setLoginData({...loginData, name: e.target.value})}
-                  className="w-full bg-black/40 border border-white/10 rounded-xl py-3 px-4 outline-none focus:border-blue-500 transition-all"
-                  placeholder="Enter admin name"
-                />
-              </div>
-              <div>
-                <label className="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-1 ml-1">Password</label>
+                <label className="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-1 ml-1">Access Code</label>
                 <input 
                   type="password" 
                   value={loginData.password}
                   onChange={(e) => setLoginData({...loginData, password: e.target.value})}
-                  className="w-full bg-black/40 border border-white/10 rounded-xl py-3 px-4 outline-none focus:border-blue-500 transition-all"
-                  placeholder="Enter password"
+                  className="w-full bg-black/40 border border-white/10 rounded-xl py-4 px-6 outline-none focus:border-blue-500 transition-all text-center text-xl tracking-[0.5em] font-mono"
+                  placeholder="••••••••"
                 />
               </div>
               {error && <p className="text-red-500 text-xs text-center">{error}</p>}

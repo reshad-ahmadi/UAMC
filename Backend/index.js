@@ -130,17 +130,64 @@ app.get('/api/companies', async (req, res) => {
 
 // Add a new company
 app.post('/api/companies', async (req, res) => {
-  const { name, category, image, description, location } = req.body;
-  console.log('Attempting to add company:', name);
+  const { 
+    name_en, name_da, name_ps,
+    category_en, category_da, category_ps,
+    image, logo, 
+    description_en, description_da, description_ps,
+    location_en, location_da, location_ps,
+    factory_address_en, factory_address_da, factory_address_ps,
+    sales_office_address_en, sales_office_address_da, sales_office_address_ps,
+    contact_numbers_en, contact_numbers_da, contact_numbers_ps
+  } = req.body;
+  
+  console.log('Attempting to add company (Multilingual):', name_en);
+  
   try {
-    const result = await pool.query(
-      'INSERT INTO companies (name, category, image, description, location) VALUES ($1, $2, $3, $4, $5) RETURNING *',
-      [name, category, image, description, location]
-    );
+    const query = `
+      INSERT INTO companies (
+        name_en, name_da, name_ps,
+        category_en, category_da, category_ps,
+        image, logo, 
+        description_en, description_da, description_ps,
+        location_en, location_da, location_ps,
+        factory_address_en, factory_address_da, factory_address_ps,
+        sales_office_address_en, sales_office_address_da, sales_office_address_ps,
+        contact_numbers_en, contact_numbers_da, contact_numbers_ps
+      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23) RETURNING *
+    `;
+    
+    const values = [
+      name_en, name_da, name_ps,
+      category_en, category_da, category_ps,
+      image, logo, 
+      description_en, description_da, description_ps,
+      location_en, location_da, location_ps,
+      factory_address_en, factory_address_da, factory_address_ps,
+      sales_office_address_en, sales_office_address_da, sales_office_address_ps,
+      contact_numbers_en, contact_numbers_da, contact_numbers_ps
+    ];
+
+    const result = await pool.query(query, values);
     console.log('Successfully added company to DB');
     res.status(201).json(result.rows[0]);
   } catch (err) {
     console.error('DB_INSERT_ERROR:', err.message);
+    res.status(500).json({ error: `Database error: ${err.message}` });
+  }
+});
+
+// Delet a company
+app.delete('/api/companies/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    const result = await pool.query('DELETE FROM companies WHERE id = $1 RETURNING *', [id]);
+    if (result.rowCount === 0) {
+      return res.status(404).json({ error: 'Company not found' });
+    }
+    res.json({ message: 'Company deleted successfully', company: result.rows[0] });
+  } catch (err) {
+    console.error('DB_DELETE_ERROR:', err.message);
     res.status(500).json({ error: `Database error: ${err.message}` });
   }
 });
