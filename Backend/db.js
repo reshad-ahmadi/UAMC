@@ -76,9 +76,14 @@ const initDb = async () => {
       )
     `);
 
-    console.log('Live MySQL Database connected and initialized');
+    console.log('✅ MySQL Database connected and initialized successfully');
   } catch (err) {
-    console.error('Database initialization error:', err);
+    if (err.code === 'ECONNREFUSED' || err.code === 'ETIMEDOUT') {
+      console.warn('⚠️  Warning: Could not connect to MySQL database (remote host may be blocking connections).');
+      console.warn('   The server is still running. Database features will not work until a DB connection is available.');
+    } else {
+      console.error('Database initialization error:', err.message);
+    }
   }
 };
 
