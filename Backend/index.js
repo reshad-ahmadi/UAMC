@@ -4,15 +4,25 @@ const cors = require('cors');
 const nodemailer = require('nodemailer');
 const multer = require('multer');
 const path = require('path');
-const pool = require('./db');
+const fs = require('fs');
+const { pool, initDb } = require('./db');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+// Initialize Database
+initDb();
+
+// Ensure uploads directory exists
+const uploadDir = path.join(__dirname, 'uploads');
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir, { recursive: true });
+}
+
 // Configure Multer for File Uploads
 const uploadStorage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'uploads/');
+    cb(null, uploadDir);
   },
   filename: (req, file, cb) => {
     cb(null, Date.now() + path.extname(file.originalname));
@@ -21,35 +31,9 @@ const uploadStorage = multer.diskStorage({
 const upload = multer({ storage: uploadStorage });
 
 // Middleware
-const allowedOrigins = [
-  'http://localhost:5173',
-  'http://localhost:3000',
-  process.env.FRONTEND_URL, // e.g. https://your-app.vercel.app
-].filter(Boolean);
-
-app.use(cors({
-  origin: function (origin, callback) {
-    // Allow requests with no origin (like mobile apps, curl, Render health check)
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.indexOf(origin) !== -1 || allowedOrigins.some(o => origin.startsWith(o))) {
-      return callback(null, true);
-    }
-    // In production allow all vercel.app domains for flexibility
-    if (process.env.NODE_ENV === 'production' && (origin.endsWith('.vercel.app') || origin.endsWith('.onrender.com'))) {
-      return callback(null, true);
-    }
-    callback(null, true); // Allow all for now; restrict after testing
-  },
-  credentials: true,
-}));
+app.use(cors());
 app.use(express.json());
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-
-// Ensure uploads directory exists
-const fs = require('fs');
-if (!fs.existsSync('./uploads')) {
-  fs.mkdirSync('./uploads');
-}
+app.use('/uploads', express.static(uploadDir));
 
 // Routes
 app.get('/', (req, res) => {
@@ -61,19 +45,15 @@ app.post('/api/contact', async (req, res) => {
   const { name, email, subject, message } = req.body;
 
   try {
-    // 1. Save to Database (Optional)
     try {
       await pool.query(
-        'INSERT INTO contacts (name, email, subject, message) VALUES ($1, $2, $3, $4)',
+        'INSERT INTO contacts (name, email, subject, message) VALUES (?, ?, ?, ?)',
         [name, email, subject, message]
       );
     } catch (dbErr) {
       console.error('Database save failed (skipping):', dbErr.message);
-      // We continue even if DB fails so the user can test the email
     }
 
-    // 2. Set up Nodemailer transporter
-    // Note: You need to provide real credentials in .env for this to actually send emails
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
@@ -94,7 +74,6 @@ app.post('/api/contact', async (req, res) => {
       `,
     };
 
-    // 3. Send Email (Disabled by default until credentials are provided)
     if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
       await transporter.sendMail(mailOptions);
     }
@@ -120,8 +99,8 @@ app.post('/api/upload', upload.single('image'), (req, res) => {
 // Get all companies
 app.get('/api/companies', async (req, res) => {
   try {
-    const result = await pool.query('SELECT * FROM companies ORDER BY created_at DESC');
-    res.json(result.rows);
+    const [rows] = await pool.query('SELECT * FROM companies ORDER BY created_at DESC');
+    res.json(rows);
   } catch (err) {
     console.error('Error fetching companies:', err);
     res.status(500).json({ error: 'Failed to fetch companies' });
@@ -130,37 +109,35 @@ app.get('/api/companies', async (req, res) => {
 
 // Add a new company
 app.post('/api/companies', async (req, res) => {
-  const { 
+  const {
     name_en, name_da, name_ps,
     category_en, category_da, category_ps,
-    image, logo, 
+    image, logo,
     description_en, description_da, description_ps,
     location_en, location_da, location_ps,
     factory_address_en, factory_address_da, factory_address_ps,
     sales_office_address_en, sales_office_address_da, sales_office_address_ps,
     contact_numbers_en, contact_numbers_da, contact_numbers_ps
   } = req.body;
-  
-  console.log('Attempting to add company (Multilingual):', name_en);
-  
+
   try {
     const query = `
       INSERT INTO companies (
         name_en, name_da, name_ps,
         category_en, category_da, category_ps,
-        image, logo, 
+        image, logo,
         description_en, description_da, description_ps,
         location_en, location_da, location_ps,
         factory_address_en, factory_address_da, factory_address_ps,
         sales_office_address_en, sales_office_address_da, sales_office_address_ps,
         contact_numbers_en, contact_numbers_da, contact_numbers_ps
-      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23) RETURNING *
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `;
-    
+
     const values = [
       name_en, name_da, name_ps,
       category_en, category_da, category_ps,
-      image, logo, 
+      image, logo,
       description_en, description_da, description_ps,
       location_en, location_da, location_ps,
       factory_address_en, factory_address_da, factory_address_ps,
@@ -168,24 +145,23 @@ app.post('/api/companies', async (req, res) => {
       contact_numbers_en, contact_numbers_da, contact_numbers_ps
     ];
 
-    const result = await pool.query(query, values);
-    console.log('Successfully added company to DB');
-    res.status(201).json(result.rows[0]);
+    const [result] = await pool.query(query, values);
+    res.status(201).json({ id: result.insertId, ...req.body });
   } catch (err) {
     console.error('DB_INSERT_ERROR:', err.message);
     res.status(500).json({ error: `Database error: ${err.message}` });
   }
 });
 
-// Delet a company
+// Delete a company
 app.delete('/api/companies/:id', async (req, res) => {
   const { id } = req.params;
   try {
-    const result = await pool.query('DELETE FROM companies WHERE id = $1 RETURNING *', [id]);
-    if (result.rowCount === 0) {
+    const [result] = await pool.query('DELETE FROM companies WHERE id = ?', [id]);
+    if (result.affectedRows === 0) {
       return res.status(404).json({ error: 'Company not found' });
     }
-    res.json({ message: 'Company deleted successfully', company: result.rows[0] });
+    res.json({ message: 'Company deleted successfully' });
   } catch (err) {
     console.error('DB_DELETE_ERROR:', err.message);
     res.status(500).json({ error: `Database error: ${err.message}` });
