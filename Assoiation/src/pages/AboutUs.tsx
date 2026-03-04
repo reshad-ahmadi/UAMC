@@ -82,9 +82,10 @@ export default function AboutUs() {
 
   const [currentSlide, setCurrentSlide] = React.useState(0);
   const slides = [
-    "/images/about-slide-1.jpg",
-    "/images/about-slide-2.jpg",
-    "/images/about-slide-3.jpg"
+    "/images/about-v2-1.jpg",
+    "/images/about-v2-2.jpg",
+    "/images/about-v2-3.jpg",
+    "/images/about-v2-4.jpg"
   ];
 
   React.useEffect(() => {
@@ -134,7 +135,7 @@ export default function AboutUs() {
             </div>
           ))}
           {/* Darker overlay for better text readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0B1222]/60 via-[#0B1222]/70 to-[#0B1222]/90"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0B1222]/30 via-[#0B1222]/40 to-[#0B1222]/70"></div>
         </div>
 
         <div className="max-w-full mx-auto px-6 lg:px-12 2xl:px-[250px] relative w-full text-center">
