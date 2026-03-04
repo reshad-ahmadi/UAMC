@@ -2,29 +2,29 @@
   "version": 2,
   "builds": [
     {
+      "src": "Backend/index.js",
+      "use": "@vercel/node"
+    },
+    {
       "src": "Assoiation/package.json",
       "use": "@vercel/static-build",
       "config": {
         "distDir": "dist"
       }
-    },
-    {
-      "src": "Backend/index.js",
-      "use": "@vercel/node"
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/api/(.*)",
-      "dest": "/Backend/index.js"
+      "source": "/api/(.*)",
+      "destination": "/Backend/index.js"
     },
     {
-      "src": "/(.*)",
-      "dest": "/Assoiation/$1"
+      "source": "/(.*)",
+      "destination": "/Assoiation/$1"
     }
   ],
   "framework": "vite",
-  "buildCommand": "cd Assoiation && pnpm run build",
+  "buildCommand": "cd Assoiation && pnpm install && pnpm run build",
   "outputDirectory": "Assoiation/dist"
 }
 
