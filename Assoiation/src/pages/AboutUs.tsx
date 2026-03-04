@@ -82,10 +82,9 @@ export default function AboutUs() {
 
   const [currentSlide, setCurrentSlide] = React.useState(0);
   const slides = [
-    "/images/slide-herat-industrial.jpg",
-    "/images/slide-steel-union.jpg",
-    "/images/slide-pipe-production.jpg",
-    "/images/slide-mazar-factory.jpg"
+    "/images/about-slide-1.jpg",
+    "/images/about-slide-2.jpg",
+    "/images/about-slide-3.jpg"
   ];
 
   React.useEffect(() => {
