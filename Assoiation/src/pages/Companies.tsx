@@ -147,7 +147,6 @@ const CompanyCard = ({ company, t, language }: { company: any, t: any, language:
 
 export default function Companies() {
   const { language, t, companies: staticCompanies } = useLanguage();
-  const [dynamicCompanies, setDynamicCompanies] = React.useState<any[]>([]);
   const isRTL = language === 'da' || language === 'ps';
 
   const allCompanies = [...staticCompanies];
