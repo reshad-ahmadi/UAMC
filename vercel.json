@@ -7,9 +7,17 @@
       "config": {
         "distDir": "dist"
       }
+    },
+    {
+      "src": "Backend/index.js",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/Backend/index.js"
+    },
     {
       "src": "/(.*)",
       "dest": "/Assoiation/$1"
@@ -19,3 +27,4 @@
   "buildCommand": "cd Assoiation && npm run build",
   "outputDirectory": "Assoiation/dist"
 }
+

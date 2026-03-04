@@ -33,17 +33,16 @@ const ContactUs = () => {
         body: JSON.stringify(formData),
       });
 
-      const data = await response.json();
-
       if (response.ok) {
-        setStatus({ type: 'success', message: t('success_message') });
+        setStatus({ type: 'success', message: t('success_message') || 'Message sent successfully!' });
         setFormData({ name: '', email: '', subject: '', message: '' });
       } else {
-        setStatus({ type: 'error', message: data.error || t('error_message') });
+        const data = await response.json();
+        setStatus({ type: 'error', message: data.error || t('error_message') || 'Something went wrong.' });
       }
     } catch (error) {
       console.error('Error sending message:', error);
-      setStatus({ type: 'error', message: t('error_message') });
+      setStatus({ type: 'error', message: t('error_message') || 'Failed to send message.' });
     } finally {
       setLoading(false);
     }

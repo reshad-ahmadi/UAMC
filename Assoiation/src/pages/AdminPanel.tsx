@@ -27,7 +27,7 @@ export default function AdminPanel() {
   const [members, setMembers] = useState<any[]>([]);
   const [message, setMessage] = useState({ type: '', text: '' });
 
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+  const API_URL = import.meta.env.VITE_API_URL || 'https://uigpmca.af/api';
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();

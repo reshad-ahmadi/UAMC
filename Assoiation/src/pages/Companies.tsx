@@ -148,54 +148,9 @@ const CompanyCard = ({ company, t, language }: { company: any, t: any, language:
 export default function Companies() {
   const { language, t, companies: staticCompanies } = useLanguage();
   const [dynamicCompanies, setDynamicCompanies] = React.useState<any[]>([]);
-  const [showLogin, setShowLogin] = React.useState(false);
-  const [loginData, setLoginData] = React.useState({ name: '', password: '' });
-  const [error, setError] = React.useState('');
   const isRTL = language === 'da' || language === 'ps';
 
-  React.useEffect(() => {
-    const fetchCompanies = async () => {
-      try {
-        const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
-        const response = await fetch(`${apiUrl}/api/companies`);
-        if (response.ok) {
-          const data = await response.json();
-          // Map backend fields to frontend interface if necessary
-          const mappedData = data.map((c: any) => ({
-            id: c.id,
-            title: language === 'en' ? c.name_en : (language === 'da' ? c.name_da : c.name_ps),
-            image: c.image || '/images/slide-pipe-production.jpg',
-            logo: c.logo,
-            description: language === 'en' ? c.description_en : (language === 'da' ? c.description_da : c.description_ps),
-            category: language === 'en' ? c.category_en : (language === 'da' ? c.category_da : c.category_ps),
-            factoryAddressLabel: t('factory_address'),
-            factoryAddress: language === 'en' ? c.factory_address_en : (language === 'da' ? c.factory_address_da : c.factory_address_ps),
-            salesLabel: t('sales_office'),
-            salesAddress: language === 'en' ? c.sales_office_address_en : (language === 'da' ? c.sales_office_address_da : c.sales_office_address_ps),
-            phoneLabel: t('contact_numbers'),
-            phone: language === 'en' ? c.contact_numbers_en : (language === 'da' ? c.contact_numbers_da : c.contact_numbers_ps),
-            sloganLabel: t('company_slogan'),
-            slogan: ''
-          }));
-          setDynamicCompanies(mappedData);
-        }
-      } catch (error) {
-        console.error('Error fetching companies:', error);
-      }
-    };
-    fetchCompanies();
-  }, [language]);
-
-  const handleLogin = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (loginData.password === 'Admin0912') {
-      window.location.href = '/admin'; // Matches the route in App.tsx
-    } else {
-      setError('Invalid Access Code');
-    }
-  };
-
-  const allCompanies = [...staticCompanies, ...dynamicCompanies];
+  const allCompanies = [...staticCompanies];
 
   React.useEffect(() => {
     // Handle scrolling to hash if present
@@ -224,51 +179,7 @@ export default function Companies() {
         <p className="text-gray-400 max-w-2xl mx-auto text-base md:text-lg mb-8">
           {t('companies_desc') || "Discover the leading manufacturers shaping Afghanistan's industrial future."}
         </p>
-        
-        <button 
-          onClick={() => setShowLogin(true)}
-          className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3 rounded-xl font-bold transition-all shadow-lg shadow-blue-600/20 active:scale-95"
-        >
-          Add
-        </button>
       </div>
-
-      {/* Login Modal */}
-      {showLogin && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
-          <div className="bg-[#0B161B] border border-white/10 rounded-[2rem] p-8 w-full max-w-md animate-in fade-in zoom-in-95 duration-300">
-            <h2 className="text-2xl font-bold mb-6 text-center">Admin Access</h2>
-            <form onSubmit={handleLogin} className="space-y-4">
-              <div>
-                <label className="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-1 ml-1">Access Code</label>
-                <input 
-                  type="password" 
-                  value={loginData.password}
-                  onChange={(e) => setLoginData({...loginData, password: e.target.value})}
-                  className="w-full bg-black/40 border border-white/10 rounded-xl py-4 px-6 outline-none focus:border-blue-500 transition-all text-center text-xl tracking-[0.5em] font-mono"
-                  placeholder="••••••••"
-                />
-              </div>
-              {error && <p className="text-red-500 text-xs text-center">{error}</p>}
-              <div className="flex gap-3 pt-2">
-                <button 
-                  type="button"
-                  onClick={() => setShowLogin(false)}
-                  className="flex-1 bg-white/5 hover:bg-white/10 text-white py-3 rounded-xl font-bold transition-all"
-                >
-                  Cancel
-                </button>
-                <button 
-                  type="submit"
-                  className="flex-1 bg-blue-600 hover:bg-blue-500 text-white py-3 rounded-xl font-bold transition-all"
-                >
-                  Confirm
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
 
       <main className="max-w-7xl mx-auto px-6 lg:px-12 pb-32">
         <div className="space-y-24">
