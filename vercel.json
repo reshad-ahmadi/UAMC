@@ -24,7 +24,7 @@
     }
   ],
   "framework": "vite",
-  "buildCommand": "cd Assoiation && npm run build",
+  "buildCommand": "cd Assoiation && pnpm run build",
   "outputDirectory": "Assoiation/dist"
 }
 
