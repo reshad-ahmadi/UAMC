@@ -84,7 +84,7 @@ export default function AboutUs() {
   const slides = [
     "/images/about-v2-1.jpg",
     "/images/about-v2-2.jpg",
-    "/images/about-v2-3.jpg",
+    "/images/about-v2-3-new.jpg",
     "/images/about-v2-4.jpg"
   ];
 

@@ -18,7 +18,7 @@ const HeroSection = () => {
         <img
           alt="USMA Official Background"
           className="w-full h-full object-cover object-center lg:object-center"
-          src="/images/bg2.png"
+          src="/images/home_hero_new.jpg"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900/5 via-slate-900/20 to-[#0B1222]"></div>
       </div>

@@ -12,10 +12,10 @@ const CompanyCard = ({ company, t, language }: { company: any, t: any, language:
       {/* Decorative background blur */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none -z-0 group-hover:bg-blue-600/10 transition-colors"></div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 relative z-10">
+      <div className="flex flex-col relative z-10">
         
-        {/* Image Section - Full height on desktop */}
-        <div className="lg:col-span-5 h-72 lg:h-auto relative overflow-hidden">
+        {/* Image Section - Top */}
+        <div className="w-full h-[400px] md:h-[500px] 2xl:h-[650px] relative overflow-hidden">
           <div className="absolute inset-0 bg-blue-900/20 group-hover:bg-transparent transition-colors duration-500 z-10 mix-blend-overlay"></div>
           <img 
             src={company.image} 
@@ -26,7 +26,7 @@ const CompanyCard = ({ company, t, language }: { company: any, t: any, language:
           {/* Floating Logo Badge */}
           {company.logo && (
             <div className="absolute top-6 start-6 z-20">
-              <div className="w-20 h-20 md:w-24 md:h-24 bg-black/60 backdrop-blur-md rounded-3xl p-4 border border-white/10 shadow-2xl flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-700">
+              <div className="w-20 h-20 md:w-24 md:h-24 2xl:w-32 2xl:h-32 bg-black/60 backdrop-blur-md rounded-3xl p-4 border border-white/10 shadow-2xl flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-700">
                 <img 
                   src={company.logo} 
                   alt={`${company.title} Logo`} 
@@ -37,8 +37,8 @@ const CompanyCard = ({ company, t, language }: { company: any, t: any, language:
           )}
         </div>
 
-        {/* Content Section */}
-        <div className="lg:col-span-7 p-8 md:p-12 lg:p-14 flex flex-col">
+        {/* Content Section - Bottom */}
+        <div className="p-8 md:p-12 2xl:p-16 flex flex-col">
           
           <div className="flex-grow">
             <div className="mb-8">

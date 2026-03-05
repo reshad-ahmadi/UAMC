@@ -14,13 +14,13 @@ export default function TaxationServices() {
   }, []);
 
   const backgroundImages = [
-   '/images/companysimage/company1.png',
-   '/images/companysimage/company2.png',
-   '/images/companysimage/company3.png',
-   '/images/companysimage/company4.png',
-   '/images/companysimage/company1.png',
-   '/images/companysimage/company4.png',
-   '/images/companysimage/company2.png',
+   '/images/aria_sanat_factory_new.jpg',
+   '/images/shamal_factory_workers.jpg',
+   '/images/folad_sanat_logo_bg.png',
+   '/images/fazli_ghaznawi_logo_bg.png',
+   '/images/shirzad_factory_new.jpg',
+   '/images/nawid_mazar_logo_bg.png',
+   '/images/qadir_kamran_logo_bg.png',
   ];
 
   const pageData = [

@@ -763,7 +763,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     },
     {
       id: 'shamal-profile',
-      image: '/images/shamal_factory.jpg',
+      image: '/images/shamal_factory_interior.jpg',
       logo: '/images/shamal_logo.png',
       title: t('shamal_title'),
       description: t('shamal_desc'),
