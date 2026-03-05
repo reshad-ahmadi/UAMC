@@ -16,7 +16,7 @@ const products = [
     features: ['product_galvanized_f1', 'product_galvanized_f2', 'product_galvanized_f3'],
   },
   {
-    image: '/images/professional_steel_profiles.png',
+    image: '/images/professional_steel_profiles_v3.png',
     titleKey: 'product_profiles_title',
     descKey: 'product_profiles_desc',
     features: ['product_profiles_f1', 'product_profiles_f2', 'product_profiles_f3'],
