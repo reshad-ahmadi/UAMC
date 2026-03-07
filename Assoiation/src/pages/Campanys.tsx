@@ -14,13 +14,13 @@ export default function TaxationServices() {
   }, []);
 
   const backgroundImages = [
-   '/images/aria_sanat_factory_new.jpg',
-   '/images/shamal_factory_workers.jpg',
-   '/images/folad_sanat_logo_bg.png',
-   '/images/fazli_ghaznawi_logo_bg.png',
-   '/images/shirzad_factory_new.jpg',
-   '/images/nawid_mazar_logo_bg.png',
-   '/images/qadir_kamran_logo_bg.png',
+    '/images/aria_sanat_factory_new.jpg',
+    '/images/shamal_factory_workers.jpg',
+    '/images/folad_sanat_logo_bg.png',
+    '/images/fazli_ghaznawi_logo_bg.png',
+    '/images/shirzad_factory_new.jpg',
+    '/images/nawid_mazar_logo_bg.png',
+    '/images/qadir_kamran_logo_bg.png',
   ];
 
   const pageData = [
@@ -85,16 +85,33 @@ export default function TaxationServices() {
               index === currentPage ? 'opacity-100 translate-x-0 z-10' : 'opacity-0 translate-x-10 -z-0'
             }`}
           >
-            {/* Background */}
-            <div className="absolute inset-0 bg-black/40 z-0"></div>
+            {/* Background Layer */}
+            <div className="absolute inset-0 bg-black/50 z-0"></div>
             <div 
-              className="absolute inset-0 bg-cover bg-center -z-10 transition-transform duration-[10000ms]"
-              style={{ 
-                backgroundImage: `url(${backgroundImages[index]})`,
-                filter: 'brightness(0.5)',
-                transform: index === currentPage ? 'scale(1.1)' : 'scale(1)'
-              }}
-            ></div>
+              className="absolute inset-0 flex items-center justify-center -z-10 overflow-hidden"
+            >
+              {backgroundImages[index].includes('_logo_bg') ? (
+                // Logo Style: Centered and "Little"
+                <img 
+                  src={backgroundImages[index]} 
+                  alt="Background Logo" 
+                  className="w-[60%] h-[60%] object-contain opacity-90 transition-transform duration-[10000ms]"
+                  style={{ 
+                    transform: index === currentPage ? 'scale(1.2)' : 'scale(1)',
+                  }}
+                />
+              ) : (
+                // Factory Photo Style: Full-screen
+                <img 
+                  src={backgroundImages[index]} 
+                  alt="Background Factory" 
+                  className="w-full h-full object-cover opacity-50 transition-transform duration-[10000ms]"
+                  style={{ 
+                    transform: index === currentPage ? 'scale(1.1)' : 'scale(1)',
+                  }}
+                />
+              )}
+            </div>
 
             <div className="relative z-10 text-center max-w-4xl 2xl:max-w-[1600px] px-4 flex flex-col items-center 2xl:pb-32">
               {/* Title Section */}

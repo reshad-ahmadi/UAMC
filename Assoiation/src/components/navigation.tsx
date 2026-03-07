@@ -6,6 +6,7 @@ export default function Navigation() {
   const { t } = useLanguage();
 
   const images = [
+    "/images/aria_alhadid_logo.png",
     "/images/ARIYA_PROFILE.jpg-removebg-preview (1).png",
     "/images/ETIHAD.jpg-removebg-preview (1).png",
     "/images/FOLAD_PROFILE.jpg-removebg-preview (1).png",

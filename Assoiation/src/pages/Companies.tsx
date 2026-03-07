@@ -15,25 +15,44 @@ const CompanyCard = ({ company, t, language }: { company: any, t: any, language:
       <div className="flex flex-col relative z-10">
         
         {/* Image Section - Top */}
-        <div className="w-full h-[400px] md:h-[500px] 2xl:h-[650px] relative overflow-hidden">
-          <div className="absolute inset-0 bg-blue-900/20 group-hover:bg-transparent transition-colors duration-500 z-10 mix-blend-overlay"></div>
-          <img 
-            src={company.image} 
-            alt={company.title} 
-            className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000"
-          />
-          
-          {/* Floating Logo Badge */}
-          {company.logo && (
-            <div className="absolute top-6 start-6 z-20">
-              <div className="w-20 h-20 md:w-24 md:h-24 2xl:w-32 2xl:h-32 bg-black/60 backdrop-blur-md rounded-3xl p-4 border border-white/10 shadow-2xl flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-700">
-                <img 
-                  src={company.logo} 
-                  alt={`${company.title} Logo`} 
-                  className="w-full h-full object-contain filter drop-shadow-xl"
-                />
+        <div className={`w-full relative overflow-hidden transition-all duration-500 ${company.image ? 'h-[400px] md:h-[500px] 2xl:h-[650px]' : 'h-[250px] md:h-[300px] bg-gradient-to-br from-[#121f24] to-[#0B161B] flex items-center justify-center border-b border-white/5'}`}>
+          {company.image ? (
+            <>
+              <div className="absolute inset-0 bg-blue-900/20 group-hover:bg-transparent transition-colors duration-500 z-10 mix-blend-overlay"></div>
+              <img 
+                src={company.image} 
+                alt={company.title} 
+                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000"
+              />
+              
+              {/* Floating Logo Badge - Absolute when background exists */}
+              {company.logo && (
+                <div className="absolute top-6 start-6 z-20">
+                  <div className="w-20 h-20 md:w-24 md:h-24 2xl:w-32 2xl:h-32 bg-black/60 backdrop-blur-md rounded-3xl p-4 border border-white/10 shadow-2xl flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-700">
+                    <img 
+                      src={company.logo} 
+                      alt={`${company.title} Logo`} 
+                      className="w-full h-full object-contain filter drop-shadow-xl"
+                    />
+                  </div>
+                </div>
+              )}
+            </>
+          ) : (
+            // Centered Logo - When no background exists
+            company.logo && (
+              <div className="relative z-20">
+                <div className="w-28 h-28 md:w-36 md:h-36 2xl:w-48 2xl:h-48 bg-white/5 backdrop-blur-sm rounded-full p-6 border border-white/10 shadow-2xl flex items-center justify-center transform group-hover:scale-105 transition-all duration-700">
+                  <img 
+                    src={company.logo} 
+                    alt={`${company.title} Logo`} 
+                    className="w-full h-full object-contain filter drop-shadow-2xl"
+                  />
+                  {/* Subtle glow effect */}
+                  <div className="absolute inset-0 bg-blue-500/10 rounded-full blur-2xl -z-10 group-hover:bg-blue-500/20 transition-colors"></div>
+                </div>
               </div>
-            </div>
+            )
           )}
         </div>
 
